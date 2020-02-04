@@ -1,0 +1,7 @@
+﻿The Thegn are elite warriors of the Anglo-Saxons.
+They excel in defending locations from enemy soldiers and breaking sieges.
+They have already established an outpost in the region, and are eager to protect it with their lives.
+
+Ability:
+『SLO』
+After each turn, this unit reinforces itself and allies near their outpost.

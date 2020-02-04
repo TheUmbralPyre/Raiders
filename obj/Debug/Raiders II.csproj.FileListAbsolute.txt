@@ -1,0 +1,19 @@
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II_MarkupCompile.cache
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II_MarkupCompile.lref
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\bin\Debug\Raiders II.exe.config
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\bin\Debug\Raiders II.exe.manifest
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\bin\Debug\Raiders II.application
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\bin\Debug\Raiders II.exe
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\bin\Debug\Raiders II.pdb
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.g.resources
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders_2._0.Properties.Resources.resources
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.TrustInfo.xml
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.exe.manifest
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.application
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.exe
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.pdb
+C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Raiders II.csprojAssemblyReference.cache

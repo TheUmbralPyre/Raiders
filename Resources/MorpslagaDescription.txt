@@ -1,0 +1,9 @@
+﻿The Morpslaga are ambushers.
+There is no honor for them.
+They will run away when injured and attack you when numerous.
+Unfortunately for you, they already know that you are here.
+
+Ability:
+『Let Me Live/Let Me Die』
+This unit will have increased strength when they ambush their foe.
+However, they are vulnerable to assaults. 
