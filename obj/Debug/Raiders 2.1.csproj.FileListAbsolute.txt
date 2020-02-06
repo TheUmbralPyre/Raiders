@@ -23,3 +23,28 @@ C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Enemy0Assaul
 C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Enemy0Assault.baml
 C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Enemy1Assault.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders 2.0\Raiders 2.0\obj\Debug\Enemy1Assault.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.exe.config
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.exe.manifest
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.application
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.exe
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.pdb
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Enemy0Assault.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Enemy1Assault.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneInfo1.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneLevel.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1_MarkupCompile.cache
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1_MarkupCompile.lref
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Enemy0Assault.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Enemy1Assault.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneInfo1.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneLevel.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.g.resources
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders_2._1.Properties.Resources.resources
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.TrustInfo.xml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.exe.manifest
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.application
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.exe
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.pdb

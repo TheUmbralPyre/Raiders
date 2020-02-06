@@ -329,27 +329,27 @@ namespace Raiders_2._1
                 return (int)(Number * (2 * Strength));
             }
 
-            public bool CheckForEnemy(Image[,] Field, int HersirY, int HersirX)
+            public bool CheckForEnemy(int HersirY, int HersirX)
             {
-                if (Y == HersirY - 1)
+                if (X == HersirX - 1 || X == HersirX + 1)
+                {
+                    if (Y == HersirY - 1 || Y == HersirY + 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if ((Y == HersirY - 1 || Y == HersirY + 1) && X == HersirX)
                 {
                     return true;
                 }
-                else if (Y == HersirY + 1)
+                else if ((X == HersirX - 1 || X == HersirX + 1) && Y == HersirY)
                 {
                     return true;
                 }
-
-
-                if (X == HersirX - 1)
-                {
-                    return true;
-                }
-                else if (X == HersirX + 1)
-                {
-                    return true;
-                }
-
                 else
                 {
                     return false;
@@ -447,7 +447,14 @@ namespace Raiders_2._1
                 SelectedName.Foreground = new SolidColorBrush(Colors.Red);
                 SelectedNumber.Content = "Number Of Warriors: " + Number;
                 SelectedStrength.Content = "Strength Of Warriors: " + Strength;
-                SelectedSpecial.Content = "";
+                if (Number <= 10)
+                {
+                    SelectedSpecial.Content = "Escaping";
+                }
+                if (Number > 10)
+                {
+                    SelectedSpecial.Content = "Scouting";
+                }
                 SelectedText.Selection.Text = Description;
                 SelectedText.IsEnabled = true;
                 Field[Y, X].Source = OverworldSelected;
@@ -466,9 +473,8 @@ namespace Raiders_2._1
                 return (int)(Number * Strength);
             }
 
-            public void March(Image[,] Field, int HersirY, int HersirX)
+            public void Escape(Image[,] Field, int HersirY, int HersirX)
             {
-
                 if (Y == HersirY - 1)
                 {
                     if (Y != Field.GetLowerBound(0))
@@ -531,7 +537,6 @@ namespace Raiders_2._1
                         }
                     }
                 }
-
 
                 if (X == HersirX - 1)
                 {
@@ -596,27 +601,68 @@ namespace Raiders_2._1
                     }
                 }
             }
-            public bool CheckForEnemy(Image[,] Field,int HersirY, int HersirX)
+            public void Scout(Image[,] Field, int HersirY, int HersirX)
             {
-                if (Y == HersirY - 1)
+                if (Y == HersirY - 2)
                 {
-                    return true;
+                    if (Field[Y + 1, X].Source == null)
+                    {
+                        Field[Y, X].Source = null;
+                        Field[Y + 1, X].Source = Overworld;
+                        Y += 1;
+                    }
                 }
-                else if (Y == HersirY + 1)
+                else if (Y == HersirY + 2)
                 {
-                    return true;
+                    if (Field[Y - 1, X].Source == null)
+                    {
+                        Field[Y, X].Source = null;
+                        Field[Y - 1, X].Source = Overworld;
+                        Y -= 1;
+                    }
                 }
 
+                if (X == HersirX - 2)
+                {
+                    if (Field[Y, X + 1].Source == null)
+                    {
+                        Field[Y, X].Source = null;
+                        Field[Y, X + 1].Source = Overworld;
+                        X += 1;
+                    }
+                }
+                else if (X == HersirX + 2)
+                {
+                    if (Field[Y, X - 1].Source == null)
+                    {
+                        Field[Y, X].Source = null;
+                        Field[Y, X - 1].Source = Overworld;
+                        X -= 1;
+                    }
+                }
+            }
 
-                if (X == HersirX - 1)
+            public bool CheckForEnemy(int HersirY, int HersirX)
+            {
+                if (X == HersirX - 1 || X == HersirX + 1)
+                {
+                    if (Y == HersirY - 1 || Y == HersirY + 1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if ((Y == HersirY - 1 || Y == HersirY + 1) && X == HersirX)
                 {
                     return true;
                 }
-                else if (X == HersirX + 1)
+                else if ((X == HersirX - 1 || X == HersirX + 1) && Y == HersirY)
                 {
                     return true;
                 }
-
                 else
                 {
                     return false;
@@ -656,7 +702,7 @@ namespace Raiders_2._1
 
         public Player Hersir = new Player() { Y = 2, X = 2, Number = 20, Strength = 0.4, Wounded = 0, Actions = 200, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
         public Enemy0 Thegn = new Enemy0() { Y = 3, X = 2, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
-        public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 10, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
+        public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
 
         readonly Mission RaidLindisfarne = new Mission() {Title = "The Raid of Lindisfarne", Objective1 = "Reach the Abby", Objective2 = "Escape the Island"};
         readonly Mission FireBaptism = new Mission() { Title = "Batism by Fire", Objective1 = "Defeat the Morpslaga", Objective2 = "Defeat the Thegn" };
@@ -777,19 +823,55 @@ namespace Raiders_2._1
             Hersir.RecoverWounded();
             Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
 
-            if (Thegn.CheckForEnemy(Field, Hersir.Y, Hersir.X))
+            if (Thegn.CheckForEnemy(Morpslaga.Y, Morpslaga.X))
             {
                 int MorpNumber = Morpslaga.Number;
                 Thegn.Reinforce(Field, Morpslaga.Overworld, Morpslaga.OverworldAssault, ref MorpNumber, TurnNumber);
                 Morpslaga.Number = MorpNumber;
             }
-
-            if (Morpslaga.CheckForEnemy(Field, Hersir.Y, Hersir.X) && Morpslaga.Number > 0)
+            if (Thegn.CheckForEnemy(Hersir.Y, Hersir.X) && Thegn.Number > 10)
             {
-                Morpslaga.March(Field, Hersir.Y, Hersir.X);
+                MessageBox.Show("The Thegn have sallied you!");
+
+                int UnitCasualties = (int)(Thegn.Number * Thegn.Strength);
+                int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
+
+                Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Thegn.Number, Thegn.Strength, Hersir.Wounded);
+                Hersir.AssaultConclude(UnitCasualties);
+                Thegn.AssaultConclude(Field, EnemyCasualties);
             }
 
+            if (!Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
+            {
+                Morpslaga.Scout(Field, Hersir.Y, Hersir.X);
+            }
+            else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number <= 10)
+            {
+                Morpslaga.Escape(Field, Hersir.Y, Hersir.X);
+            }
+            else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
+            {
+                MessageBox.Show("The Morpslaga have Ambushed you!"); 
+
+                int UnitCasualties = (int)(Morpslaga.Number * Morpslaga.Strength);
+                int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
+
+                Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
+                Hersir.AssaultConclude(UnitCasualties);
+                Morpslaga.AssaultConclude(Field, EnemyCasualties);
+            }
+            
             TurnNumber++;
+            
+            Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+            if (Thegn.Number > 0)
+            {
+                Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
+            }
+            if (Morpslaga.Number > 0)
+            {
+                Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
+            }
         }
 
         private void Field_MouseDown(object sender, MouseButtonEventArgs e)
