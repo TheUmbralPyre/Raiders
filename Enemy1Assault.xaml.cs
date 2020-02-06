@@ -69,6 +69,7 @@ namespace Raiders_2._1
             UnitCasualties = (((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties());
             Wounded = ((MainWindow)Application.Current.MainWindow).Hersir.CalculateWounded(((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties());
 
+
             if (EnemyCasualties < ((MainWindow)Application.Current.MainWindow).Morpslaga.Number)
             {
                 KillInfo.Content = "Number of Enemey Casualties:" + ((MainWindow)Application.Current.MainWindow).Hersir.CalculateEnemyCasualties(FormationBonus);
@@ -78,24 +79,25 @@ namespace Raiders_2._1
                 KillInfo.Content = "All of the enemies will Die!";
             }
 
-            if (UnitCasualties < ((MainWindow)Application.Current.MainWindow).Hersir.Number && (((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties() / 2) > 0)
+            if (UnitCasualties < ((MainWindow)Application.Current.MainWindow).Hersir.Number && UnitCasualties > 0)
             {
-                DeathInfo.Content = "Number of Hersir Casualties:" + (((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties() / 2);
+                DeathInfo.Content = "Number of Hersir Casualties:" + UnitCasualties / 2;
             }
-            else if (UnitCasualties < 1)
-            {
-                DeathInfo.Content = "No Warriors will Die!";
-            }
-            else
+            else if (UnitCasualties > ((MainWindow)Application.Current.MainWindow).Hersir.Number)
             {
                 DeathInfo.Content = "All of the Hersir will Die!";
             }
-            //fix this shit nigga
+            else
+            {
+                DeathInfo.Content = "No Warriors will Die!";
+            }
+
+
             if (UnitCasualties > 1 && ((MainWindow)Application.Current.MainWindow).Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = "Number of Hersir Wounded:" + Wounded;
             }
-            else if (UnitCasualties <= 1)
+            else if (UnitCasualties <= 1 && ((MainWindow)Application.Current.MainWindow).Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = "No Warriors will be Wounded!";
             }

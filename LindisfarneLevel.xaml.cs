@@ -700,7 +700,7 @@ namespace Raiders_2._1
             }
         }
 
-        public Player Hersir = new Player() { Y = 2, X = 2, Number = 20, Strength = 0.4, Wounded = 0, Actions = 200, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
+        public Player Hersir = new Player() { Y = 2, X = 2, Number = 200, Strength = 0.4, Wounded = 0, Actions = 2, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
         public Enemy0 Thegn = new Enemy0() { Y = 3, X = 2, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
         public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
 
@@ -823,42 +823,48 @@ namespace Raiders_2._1
             Hersir.RecoverWounded();
             Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
 
-            if (Thegn.CheckForEnemy(Morpslaga.Y, Morpslaga.X))
+            if (Thegn.Number > 0)
             {
-                int MorpNumber = Morpslaga.Number;
-                Thegn.Reinforce(Field, Morpslaga.Overworld, Morpslaga.OverworldAssault, ref MorpNumber, TurnNumber);
-                Morpslaga.Number = MorpNumber;
+                if (Thegn.CheckForEnemy(Morpslaga.Y, Morpslaga.X))
+                {
+                    int MorpNumber = Morpslaga.Number;
+                    Thegn.Reinforce(Field, Morpslaga.Overworld, Morpslaga.OverworldAssault, ref MorpNumber, TurnNumber);
+                    Morpslaga.Number = MorpNumber;
+                }
+                if (Thegn.CheckForEnemy(Hersir.Y, Hersir.X) && Thegn.Number > 10)
+                {
+                    MessageBox.Show("The Thegn have sallied you!");
+
+                    int UnitCasualties = (int)(Thegn.Number * Thegn.Strength);
+                    int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
+
+                    Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Thegn.Number, Thegn.Strength, Hersir.Wounded);
+                    Hersir.AssaultConclude(UnitCasualties);
+                    Thegn.AssaultConclude(Field, EnemyCasualties);
+                }
             }
-            if (Thegn.CheckForEnemy(Hersir.Y, Hersir.X) && Thegn.Number > 10)
+
+            if (Morpslaga.Number > 0)
             {
-                MessageBox.Show("The Thegn have sallied you!");
+                if (!Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
+                {
+                    Morpslaga.Scout(Field, Hersir.Y, Hersir.X);
+                }
+                else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number <= 10)
+                {
+                    Morpslaga.Escape(Field, Hersir.Y, Hersir.X);
+                }
+                else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
+                {
+                    MessageBox.Show("The Morpslaga have Ambushed you!");
 
-                int UnitCasualties = (int)(Thegn.Number * Thegn.Strength);
-                int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
+                    int UnitCasualties = (int)(Morpslaga.Number * Morpslaga.Strength);
+                    int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
 
-                Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Thegn.Number, Thegn.Strength, Hersir.Wounded);
-                Hersir.AssaultConclude(UnitCasualties);
-                Thegn.AssaultConclude(Field, EnemyCasualties);
-            }
-
-            if (!Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
-            {
-                Morpslaga.Scout(Field, Hersir.Y, Hersir.X);
-            }
-            else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number <= 10)
-            {
-                Morpslaga.Escape(Field, Hersir.Y, Hersir.X);
-            }
-            else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
-            {
-                MessageBox.Show("The Morpslaga have Ambushed you!"); 
-
-                int UnitCasualties = (int)(Morpslaga.Number * Morpslaga.Strength);
-                int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
-
-                Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
-                Hersir.AssaultConclude(UnitCasualties);
-                Morpslaga.AssaultConclude(Field, EnemyCasualties);
+                    Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
+                    Hersir.AssaultConclude(UnitCasualties);
+                    Morpslaga.AssaultConclude(Field, EnemyCasualties);
+                }
             }
             
             TurnNumber++;
