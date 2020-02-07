@@ -124,10 +124,10 @@
             </Border.Background>
             <StackPanel>
                 <Image x:Name="SelectedPicture" HorizontalAlignment="Left" Height="174" VerticalAlignment="Top" Width="158" Margin="10,9.2,0,0" Stretch="Fill" OpacityMask="Black"/>
-                <Label x:Name="SelectedName" FontSize="25" FontFamily="Segoe UI Black" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content=""/>
-                <Label x:Name="SelectedNumber" FontSize="13" FontFamily="Segoe UI Black" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000"/>
-                <Label x:Name="SelectedStrength" FontFamily="Segoe UI Black" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <Label x:Name="SelectedSpecial" FontSize="13" FontFamily="Segoe UI Black" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label x:Name="SelectedName" FontSize="35" FontFamily="Norse Bold" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content=""/>
+                <Label x:Name="SelectedNumber" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000"/>
+                <Label x:Name="SelectedStrength" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                <Label x:Name="SelectedSpecial" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <RichTextBox x:Name="SelectedText" Margin="10,0,10.4,0" Foreground="White" IsReadOnlyCaretVisible="True" Focusable="False" AllowDrop="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="13" HorizontalScrollBarVisibility="Auto" IsEnabled="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Height="307" VerticalAlignment="Bottom" Block.LineHeight="6">
                     <RichTextBox.BorderBrush>
                         <ImageBrush/>
@@ -154,21 +154,21 @@
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="ButtonEndTurn" Margin="10,15.6,9.8,0.2" Background="#FFF9F7EB" Content="End Turn" FontSize="28" Grid.Row="8" Click="ButtonEndTurn_Click"/>
-                <Label x:Name="LabelActions" Content="Actions Left:" Margin="10,2,9.8,10.8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFFAFAFA" FontSize="20" Grid.Row="7"/>
-                <Label x:Name="LabelRightClick" Margin="10,0.2,11.8,80.4" FontSize="14" Foreground="White" Grid.Row="6" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="139" Height="61" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2">
+                <Button x:Name="ButtonEndTurn" Margin="10,15.6,9.8,0.2" Background="#FFF9F7EB" Content="End Turn" FontSize="28" Grid.Row="8" Click="ButtonEndTurn_Click" FontFamily="Norse"/>
+                <Label x:Name="LabelActions" Content="Actions Left:" Margin="10,2,9.8,10.8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFFAFAFA" FontSize="25" Grid.Row="7" FontFamily="Norse"/>
+                <Label x:Name="LabelRightClick" Margin="10,0.2,11.8,80.4" FontSize="19" Foreground="White" Grid.Row="6" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="139" Height="61" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" FontFamily="Norse">
                     <TextBlock x:Name="TextRightClick" TextWrapping="WrapWithOverflow">
                     </TextBlock>
                 </Label>
                 <Image x:Name="RightClick" Source="Resources/ClickRight.png" Grid.Row ="5"/>
-                <Label x:Name="LabelLeftClick" Margin="10,0.2,9.8,70.8" FontSize="14" Foreground="White" Grid.Row="4" Background="Transparent" Height="61" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2">
+                <Label x:Name="LabelLeftClick" Margin="10,0.2,9.8,70.8" FontSize="19" Foreground="White" Grid.Row="4" Background="Transparent" Height="61" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" FontFamily="Norse">
                     <TextBlock x:Name="TextLeftClick" TextWrapping="WrapWithOverflow">
                     </TextBlock>
                 </Label>
                 <Image x:Name="LeftClick" Source="Resources/ClickLeft.png" Grid.Row ="3"/>
-                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="WrapWithOverflow"/>
-                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="15" TextWrapping="WrapWithOverflow"/>
-                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" MouseUp="TextBlockMissionTitle_MouseLeftButtonUp" FontSize="20" TextWrapping="WrapWithOverflow" Text="MissionTitle"/>
+                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
+                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
+                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" MouseUp="TextBlockMissionTitle_MouseLeftButtonUp" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
             </Grid>
         </Border>
     </Grid>

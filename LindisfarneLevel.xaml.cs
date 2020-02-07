@@ -137,9 +137,9 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.LightSkyBlue);
-                SelectedNumber.Content = "Number Of Warriors: " + Number;
-                SelectedStrength.Content = "Strength Of Warriors: " + Strength;
-                SelectedSpecial.Content = "Number Of Wounded: " + Wounded;
+                SelectedNumber.Content = "Number: " + Number;
+                SelectedStrength.Content = "Strength: " + Strength;
+                SelectedSpecial.Content = "Wounded: " + Wounded;
                 SelectedText.Selection.Text = Description;
                 SelectedText.IsEnabled = true;
                 Field[Y, X].Source = OverworldSelected;
@@ -299,8 +299,8 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.Red);
-                SelectedNumber.Content = "Number Of Warriors: " + Number;
-                SelectedStrength.Content = "Strength Of Warriors: " + Strength;
+                SelectedNumber.Content = "Number: " + Number;
+                SelectedStrength.Content = "Strength: " + Strength;
                 
                 if (TurnNumber % 2 == 0)
                 {
@@ -445,8 +445,8 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.Red);
-                SelectedNumber.Content = "Number Of Warriors: " + Number;
-                SelectedStrength.Content = "Strength Of Warriors: " + Strength;
+                SelectedNumber.Content = "Number: " + Number;
+                SelectedStrength.Content = "Strength: " + Strength;
                 if (Number <= 10)
                 {
                     SelectedSpecial.Content = "Escaping";
