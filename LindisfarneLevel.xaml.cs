@@ -137,7 +137,7 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.LightSkyBlue);
-                SelectedNumber.Content = "Number: " + Number;
+                SelectedNumber.Content = "Warriors: " + Number;
                 SelectedStrength.Content = "Strength: " + Strength;
                 SelectedSpecial.Content = "Wounded: " + Wounded;
                 SelectedText.Selection.Text = Description;
@@ -299,7 +299,7 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.Red);
-                SelectedNumber.Content = "Number: " + Number;
+                SelectedNumber.Content = "Warriors: " + Number;
                 SelectedStrength.Content = "Strength: " + Strength;
                 
                 if (TurnNumber % 2 == 0)
@@ -445,7 +445,7 @@ namespace Raiders_2._1
                 SelectedPicture.Source = Picture;
                 SelectedName.Content = Name;
                 SelectedName.Foreground = new SolidColorBrush(Colors.Red);
-                SelectedNumber.Content = "Number: " + Number;
+                SelectedNumber.Content = "Warriors: " + Number;
                 SelectedStrength.Content = "Strength: " + Strength;
                 if (Number <= 10)
                 {
@@ -931,7 +931,7 @@ namespace Raiders_2._1
                 }
                 else if (image.Source.ToString() == Thegn.OverworldAssault.ToString() && Hersir.Actions > 0)
                 {
-                    Enemy0Assault ThegnAssault = new Enemy0Assault();
+                    Enemy0Assault ThegnAssault = new Enemy0Assault(this);
                     ThegnAssault.ShowDialog();
                     Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
                     Hersir.UpdateActions(LabelActions, false);
@@ -955,16 +955,7 @@ namespace Raiders_2._1
                 }
                 else if (image.Source.ToString() == Morpslaga.OverworldAssault.ToString() && Hersir.Actions > 0)
                 {
-                    /*
-                    int UnitCasualties = (int)(Morpslaga.Number * Morpslaga.Strength);
-                    int EnemyCasualties = (int)((Hersir.Number * Hersir.Strength) + (Hersir.Wounded * (Hersir.Strength / 2)));
-
-                    Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
-                    Hersir.AssaultConclude(UnitCasualties);
-                    Morpslaga.AssaultConclude(Field, EnemyCasualties);
-                    */
-
-                    Enemy1Assault MorpslagaAssault = new Enemy1Assault();
+                    Enemy1Assault MorpslagaAssault = new Enemy1Assault(this);
                     MorpslagaAssault.ShowDialog();
                     MapClean();
                     Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Raiders_2._0"
              StartupUri="MainMenu.xaml">
+    
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>

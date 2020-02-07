@@ -17,6 +17,8 @@ namespace Raiders_2._1
 
     public partial class Enemy1Assault : Window
     {
+        MainWindow MW = new MainWindow();
+
         public class Formation
         {
             public BitmapImage NotSelected { get; set; }
@@ -65,25 +67,25 @@ namespace Raiders_2._1
                 FormationBonus = 0;
             }
 
-            EnemyCasualties = ((MainWindow)Application.Current.MainWindow).Hersir.CalculateEnemyCasualties(FormationBonus);
-            UnitCasualties = (((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties());
-            Wounded = ((MainWindow)Application.Current.MainWindow).Hersir.CalculateWounded(((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties());
+            EnemyCasualties = MW.Hersir.CalculateEnemyCasualties(FormationBonus);
+            UnitCasualties = (MW.Morpslaga.CalculateUnitCasualties());
+            Wounded = MW.Hersir.CalculateWounded(MW.Morpslaga.CalculateUnitCasualties());
 
 
-            if (EnemyCasualties < ((MainWindow)Application.Current.MainWindow).Morpslaga.Number)
+            if (EnemyCasualties < MW.Morpslaga.Number)
             {
-                KillInfo.Content = "Number of Enemey Casualties:" + ((MainWindow)Application.Current.MainWindow).Hersir.CalculateEnemyCasualties(FormationBonus);
+                KillInfo.Content = "Number of Enemey Casualties:" + MW.Hersir.CalculateEnemyCasualties(FormationBonus);
             }
             else
             {
                 KillInfo.Content = "All of the enemies will Die!";
             }
 
-            if (UnitCasualties < ((MainWindow)Application.Current.MainWindow).Hersir.Number && UnitCasualties > 0)
+            if (UnitCasualties < MW.Hersir.Number && UnitCasualties > 0)
             {
                 DeathInfo.Content = "Number of Hersir Casualties:" + UnitCasualties / 2;
             }
-            else if (UnitCasualties > ((MainWindow)Application.Current.MainWindow).Hersir.Number)
+            else if (UnitCasualties > MW.Hersir.Number)
             {
                 DeathInfo.Content = "All of the Hersir will Die!";
             }
@@ -93,44 +95,47 @@ namespace Raiders_2._1
             }
 
 
-            if (UnitCasualties > 1 && ((MainWindow)Application.Current.MainWindow).Hersir.Wounded == 0)
+            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = "Number of Hersir Wounded:" + Wounded;
             }
-            else if (UnitCasualties <= 1 && ((MainWindow)Application.Current.MainWindow).Hersir.Wounded == 0)
+            else if (UnitCasualties <= 1 && MW.Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = "No Warriors will be Wounded!";
             }
             else
             {
                 WoundedInfo.Content = "The Wounded Warriors will Perish!";
-                DeathInfo.Content = "Number of Hersir Casualties:" + (((MainWindow)Application.Current.MainWindow).Morpslaga.CalculateUnitCasualties());
+                DeathInfo.Content = "Number of Hersir Casualties:" + (MW.Morpslaga.CalculateUnitCasualties());
             }
 
             Assault.IsEnabled = true;
         }
 
-        public Enemy1Assault()
+        public Enemy1Assault(MainWindow mainWindow)
         {
             InitializeComponent();
+            MW = mainWindow;
+
+            LabelHersirNumber.Content = "Number of Warriors:" + MW.Hersir.Number;
+            LabelHersirStrength.Content = "Strength of Warriors:" + MW.Hersir.Strength;
+            LabelHersirWounded.Content = "Number of Wounded:" + MW.Hersir.Wounded;
+
+            LabelMorpslagaNumber.Content = "Number of Warriors:" + MW.Morpslaga.Number;
+            LabelMorpslagaStrength.Content = "Strength of Warriors:" + MW.Morpslaga.Strength;
         }
 
         private void Assault_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).Hersir.Number -= UnitCasualties;
-            ((MainWindow)Application.Current.MainWindow).Morpslaga.Number -= EnemyCasualties;
-            ((MainWindow)Application.Current.MainWindow).Hersir.Wounded = Wounded;
+            MW.Hersir.Number -= UnitCasualties;
+            MW.Morpslaga.Number -= EnemyCasualties;
+            MW.Hersir.Wounded = Wounded;
             DialogResult = true;
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            LabelHersirNumber.Content = "Number of Warriors:" + ((MainWindow)Application.Current.MainWindow).Hersir.Number;
-            LabelHersirStrength.Content = "Strength of Warriors:" + ((MainWindow)Application.Current.MainWindow).Hersir.Strength;
-            LabelHersirWounded.Content = "Number of Wounded:" + ((MainWindow)Application.Current.MainWindow).Hersir.Wounded;
-
-            LabelMorpslagaNumber.Content = "Number of Warriors:" + ((MainWindow)Application.Current.MainWindow).Morpslaga.Number;
-            LabelMorpslagaStrength.Content = "Strength of Warriors:" + ((MainWindow)Application.Current.MainWindow).Morpslaga.Strength;
+            
 
             MorpslagaFormation.Source = Wedge.Selected;
         }

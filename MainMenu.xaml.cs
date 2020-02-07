@@ -27,9 +27,8 @@ namespace Raiders_2._1
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
             MainWindow Lindisfarne = new MainWindow();
-            this.Hide();
-            Lindisfarne.ShowDialog();
             this.Close();
+            Lindisfarne.ShowDialog();
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
