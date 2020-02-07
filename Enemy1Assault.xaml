@@ -24,23 +24,23 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Image x:Name="ImageHersir" Source="Resources/HersirOverworld.png"/>
-        <Label x:Name="LabelHersirNumber" Content="Number of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="16" Foreground="LightSeaGreen"/>
-        <Label x:Name="LabelHersirStrength" Content="Strength of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontSize="16" Foreground="Red"/>
-        <Label x:Name="LabelHersirWounded" Content="Number of Wounded:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" FontSize="16" Foreground="Yellow"/>
-        <Button x:Name="Assault" Content="Launch Assault!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Click="Assault_Click" Width="136" Height="58" Margin="70.2,31,58.6,51" IsEnabled="False"/>
-        <Button x:Name="Cancel" Content="Cancel Assault!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Margin="70.2,0,58.6,16.4" Width="136" Height="30" IsCancel="True"/>
+        <Label x:Name="LabelHersirNumber" Content="Number of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="21" Foreground="LightSeaGreen" FontFamily="Norse"/>
+        <Label x:Name="LabelHersirStrength" Content="Strength of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontSize="21" Foreground="Red" FontFamily="Norse"/>
+        <Label x:Name="LabelHersirWounded" Content="Number of Wounded:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" FontSize="21" Foreground="Yellow" FontFamily="Norse"/>
+        <Button x:Name="Assault" Content="Launch Assault!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Click="Assault_Click" Width="136" Height="58" Margin="64.6,68,53,88.4" IsEnabled="False" FontFamily="Norse" FontSize="17"/>
+        <Button x:Name="Cancel" Content="Cancel Assault!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Margin="64.6,0,53,16.4" Width="136" Height="30" IsCancel="True" FontFamily="Norse" FontSize="17"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image x:Name="Formation0" Source="Resources/FormationWedge.jpg" Margin="0,0,0,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
             <Image x:Name="Formation1" Source="Resources/FormationShieldWall.jpg" Margin="0,0,0,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp" />
             <Image x:Name="Formation2" Source="Resources/FormationCrescent.jpg" Margin="0,0,0,0.2" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
         </StackPanel>
         <Image x:Name="ImageMorpslaga" Source="Resources/MorpslagaOverworld.png" Grid.Column="2" Margin="0,10,9.6,10.4"/>
-        <Label x:Name="LabelMorpslagaNumber" Content="Number of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  FontSize="16" Foreground="LightSeaGreen"/>
-        <Label x:Name="LabelMorpslagaStrength" Content="Strength of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3"  FontSize="16" Foreground="Red"/>
+        <Label x:Name="LabelMorpslagaNumber" Content="Number of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  FontSize="21" Foreground="LightSeaGreen" FontFamily="Norse"/>
+        <Label x:Name="LabelMorpslagaStrength" Content="Strength of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3"  FontSize="21" Foreground="Red" FontFamily="Norse"/>
         <Image x:Name="MorpslagaFormation" Source="Resources/FormationWedgeSelected.jpg" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="FormationInfo"  Content="Choose a Formation!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="16" Foreground="White"/>
-        <Label x:Name="DeathInfo" Content="Number of Hersir Casualties:?" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" FontSize="16" Foreground="DarkSeaGreen"/>
-        <Label x:Name="KillInfo"  Content="Number of Enemy Casualties:?" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="16" Foreground="Crimson"/>
-        <Label x:Name="WoundedInfo" Content="This many Hersir will be wounded:?" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" FontSize="16" Foreground="Gold"/>
+        <Label x:Name="FormationInfo"  Content="Choose a Formation!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="21" Foreground="White" FontFamily="Norse"/>
+        <Label x:Name="DeathInfo" Content="? Hersir will be Killed!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" FontSize="21" Foreground="DarkSeaGreen" FontFamily="Norse"/>
+        <Label x:Name="KillInfo"  Content="? of Morpslaga will Die!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="21" Foreground="Crimson" FontFamily="Norse"/>
+        <Label x:Name="WoundedInfo" Content="? Hersir will be Wounded!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" FontSize="21" Foreground="Gold" FontFamily="Norse"/>
     </Grid>
 </Window>

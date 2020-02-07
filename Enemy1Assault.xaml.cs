@@ -71,42 +71,44 @@ namespace Raiders_2._1
             UnitCasualties = (MW.Morpslaga.CalculateUnitCasualties());
             Wounded = MW.Hersir.CalculateWounded(MW.Morpslaga.CalculateUnitCasualties());
 
-
-            if (EnemyCasualties < MW.Morpslaga.Number)
+            if (EnemyCasualties < MW.Morpslaga.Number && EnemyCasualties >= 1)
             {
-                KillInfo.Content = "Number of Enemey Casualties:" + MW.Hersir.CalculateEnemyCasualties(FormationBonus);
+                KillInfo.Content = MW.Hersir.CalculateEnemyCasualties(FormationBonus) + " Of the Morpslaga Will Die!";
+            }
+            else if (EnemyCasualties >= MW.Morpslaga.Number)
+            {
+                KillInfo.Content = "All of the Morpslaga will Die!";
             }
             else
             {
-                KillInfo.Content = "All of the enemies will Die!";
+                KillInfo.Content = "None of the Morpslaga will Die!";
             }
 
-            if (UnitCasualties < MW.Hersir.Number && UnitCasualties > 0)
+            if (UnitCasualties < MW.Hersir.Number && UnitCasualties >= 1)
             {
-                DeathInfo.Content = "Number of Hersir Casualties:" + UnitCasualties / 2;
+                DeathInfo.Content = UnitCasualties / 2 + " Hersir will be Killed!";
             }
-            else if (UnitCasualties > MW.Hersir.Number)
+            else if (UnitCasualties >= MW.Hersir.Number)
             {
                 DeathInfo.Content = "All of the Hersir will Die!";
             }
             else
             {
-                DeathInfo.Content = "No Warriors will Die!";
+                DeathInfo.Content = "No Hersir will be Killed!";
             }
-
 
             if (UnitCasualties > 1 && MW.Hersir.Wounded == 0)
             {
-                WoundedInfo.Content = "Number of Hersir Wounded:" + Wounded;
+                WoundedInfo.Content = Wounded + " Hersir will be Wounded!";
             }
             else if (UnitCasualties <= 1 && MW.Hersir.Wounded == 0)
             {
-                WoundedInfo.Content = "No Warriors will be Wounded!";
+                WoundedInfo.Content = "No Hersir will be Wounded!";
             }
             else
             {
                 WoundedInfo.Content = "The Wounded Warriors will Perish!";
-                DeathInfo.Content = "Number of Hersir Casualties:" + (MW.Morpslaga.CalculateUnitCasualties());
+                DeathInfo.Content =(MW.Morpslaga.CalculateUnitCasualties()) + " Hersir will be Killed!";
             }
 
             Assault.IsEnabled = true;
