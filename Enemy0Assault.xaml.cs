@@ -98,13 +98,17 @@ namespace Raiders_2._1
                 DeathInfo.Content = "No Hersir will be Killed!";
             }
 
-            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0)
+            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0 && UnitCasualties < MW.Hersir.Number)
             {
                 WoundedInfo.Content = Wounded + " Hersir will be Wounded!";
             }
             else if (UnitCasualties <= 1 && MW.Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = "No Hersir will be Wounded!";
+            }
+            else if (UnitCasualties >= MW.Hersir.Number)
+            {
+                WoundedInfo.Content = "";
             }
             else
             {

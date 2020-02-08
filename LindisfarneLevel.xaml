@@ -166,9 +166,9 @@
                     </TextBlock>
                 </Label>
                 <Image x:Name="LeftClick" Source="Resources/ClickLeft.png" Grid.Row ="3"/>
-                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
-                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
-                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" MouseUp="TextBlockMissionTitle_MouseLeftButtonUp" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
+                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse" MouseEnter="TextBlockMissionObjective2_MouseEnter" MouseLeave="TextBlockMissionObjective2_MouseLeave"/>
+                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse" MouseEnter="TextBlockMissionObjective1_MouseEnter" MouseLeave="TextBlockMissionObjective1_MouseLeave"/>
+                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
             </Grid>
         </Border>
     </Grid>

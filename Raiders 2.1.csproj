@@ -128,12 +128,19 @@
       <DependentUpon>LindisfarneLevel.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="LindisfarneResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LindisfarneResult.xaml.cs">
+      <DependentUpon>LindisfarneResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -202,9 +209,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Defeat.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\HersirDescription.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -231,11 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MorpslagaDescription.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\MorpslagaOverworldDefeated.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\MorpslagaOverworld.png">
@@ -316,11 +315,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ThegnOverworldDefeated.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\FormationCrescent.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -347,6 +341,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\FormationWedgeSelected.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MorpslagaOverworldDefeated.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ThegnOverworldDefeated.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MissionMarker.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

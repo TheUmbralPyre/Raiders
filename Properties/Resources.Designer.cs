@@ -133,16 +133,6 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Defeat {
-            get {
-                object obj = ResourceManager.GetObject("Defeat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap EventImage1 {
             get {
                 object obj = ResourceManager.GetObject("EventImage1", resourceCulture);
@@ -292,6 +282,16 @@ namespace Raiders_2._1.Properties {
         internal static System.Drawing.Bitmap MapLindisfarne {
             get {
                 object obj = ResourceManager.GetObject("MapLindisfarne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MissionMarker {
+            get {
+                object obj = ResourceManager.GetObject("MissionMarker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -22,6 +22,7 @@ namespace Raiders_2._1
     {
         private Image[,] Field = new Image[6,8];
         private BitmapImage MarchImage = new BitmapImage(new Uri("Resources/Move.png", UriKind.Relative));
+        private BitmapImage MissionMarker = new BitmapImage(new Uri("Resources/MissionMarker.png", UriKind.Relative));
         private int TurnNumber = 1;
 
         public abstract class Unit
@@ -277,6 +278,24 @@ namespace Raiders_2._1
                 }
             }
 
+            public void MissionResult(bool Victory,MainWindow MW)
+            {
+                if (Victory)
+                {
+                    LindisfarneResult Result = new LindisfarneResult("Victory!");
+                    MW.Close();
+                    Result.ShowDialog();
+
+                }
+
+                if (!Victory)
+                {
+                    LindisfarneResult Result = new LindisfarneResult("Defeat!");
+                    MW.Close();
+                    Result.ShowDialog();
+                }
+            }
+
             public void UpdateActions(Label LabelActions, bool EndTurn)
             {
                 if (!EndTurn)
@@ -331,16 +350,9 @@ namespace Raiders_2._1
 
             public bool CheckForEnemy(int HersirY, int HersirX)
             {
-                if (X == HersirX - 1 || X == HersirX + 1)
+                if ((X == HersirX - 1 || X == HersirX + 1) && (Y == HersirY - 1 || Y == HersirY + 1))
                 {
-                    if (Y == HersirY - 1 || Y == HersirY + 1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return true;                    
                 }
                 else if ((Y == HersirY - 1 || Y == HersirY + 1) && X == HersirX)
                 {
@@ -432,14 +444,11 @@ namespace Raiders_2._1
                     }
                 }
             }
-            public void Sally()
-            {
-
-            }
         }
         public class Enemy1 : Unit
         {
             public BitmapImage OverworldAssault { get; set; }
+            
             public void Select(Image SelectedPicture, Label SelectedName, Label SelectedNumber, Label SelectedStrength, Label SelectedSpecial, RichTextBox SelectedText, Image[,] Field)
             {
                 SelectedPicture.Source = Picture;
@@ -644,16 +653,9 @@ namespace Raiders_2._1
 
             public bool CheckForEnemy(int HersirY, int HersirX)
             {
-                if (X == HersirX - 1 || X == HersirX + 1)
+                if ((X == HersirX - 1 || X == HersirX + 1) && (Y == HersirY - 1 || Y == HersirY + 1))
                 {
-                    if (Y == HersirY - 1 || Y == HersirY + 1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return true;
                 }
                 else if ((Y == HersirY - 1 || Y == HersirY + 1) && X == HersirX)
                 {
@@ -674,7 +676,9 @@ namespace Raiders_2._1
         {
             public string Title { get; set; }
             public string Objective1 { get; set; }
+            public bool Objective1Completed { get; set; }
             public string Objective2 { get; set; }
+            public bool Objective2Completed { get; set; }
         }
 
         private void MapClean()
@@ -700,12 +704,12 @@ namespace Raiders_2._1
             }
         }
 
-        public Player Hersir = new Player() { Y = 2, X = 2, Number = 20, Strength = 0.4, Wounded = 0, Actions = 2, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
+        public Player Hersir = new Player() { Y = 2, X = 2, Number = 20, Strength = 0.4, Wounded = 0, Actions = 20, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
         public Enemy0 Thegn = new Enemy0() { Y = 3, X = 2, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
         public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
 
-        readonly Mission RaidLindisfarne = new Mission() {Title = "The Raid of Lindisfarne", Objective1 = "Reach the Abby", Objective2 = "Escape the Island"};
-        readonly Mission FireBaptism = new Mission() { Title = "Batism by Fire", Objective1 = "Defeat the Morpslaga", Objective2 = "Defeat the Thegn" };
+        readonly Mission RaidLindisfarne = new Mission() {Title = "The Raid of Lindisfarne", Objective1 = "Reach the Abby", Objective1Completed = false, Objective2 = "Escape the Island", Objective2Completed = false};
+        readonly Mission FireBaptism = new Mission() { Title = "Batism by Fire", Objective1 = "Defeat the Morpslaga", Objective1Completed = false, Objective2 = "Defeat the Thegn", Objective2Completed = false };
 
         public MainWindow()
         {
@@ -738,7 +742,7 @@ namespace Raiders_2._1
             TextBlockMissionTitle.Text = RaidLindisfarne.Title;
             TextBlockMissionObjective1.Text = RaidLindisfarne.Objective1;
             TextBlockMissionObjective2.Text = RaidLindisfarne.Objective2;
-            TextBlockMissionObjective2.Foreground = Brushes.Gray;
+            TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.Gray);
             LabelActions.Content = "Actions Left : 2";
 
             /*
@@ -914,7 +918,7 @@ namespace Raiders_2._1
                         Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
                     }
                 }
-                if (image.Source.ToString() == Hersir.OverworldSelected.ToString())
+                else if (image.Source.ToString() == Hersir.OverworldSelected.ToString())
                 {
                     MapClean();
                 }
@@ -937,9 +941,15 @@ namespace Raiders_2._1
                     Hersir.UpdateActions(LabelActions, false);
                     MapClean();
                     
+                    if (Hersir.Number <= 0)
+                    {
+                        Hersir.MissionResult(false, this);
+                    }
                     if (Thegn.Number <= 0)
                     {
                         Field[Thegn.Y, Thegn.X].Source = null;
+                        Thegn.X = 0;
+                        Thegn.Y = 0;
                     }
                 }
 
@@ -961,9 +971,15 @@ namespace Raiders_2._1
                     Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
                     Hersir.UpdateActions(LabelActions, false);
 
+                    if (Hersir.Number <= 0)
+                    {
+                        Hersir.MissionResult(false, this);
+                    }
                     if (Morpslaga.Number <= 0)
                     {
                         Field[Morpslaga.Y, Morpslaga.X].Source = null;
+                        Morpslaga.Y = 0;
+                        Morpslaga.X = 0;
                     }
                 }
 
@@ -972,9 +988,19 @@ namespace Raiders_2._1
                     Hersir.MarchConclude(Field, image);
                     FieldBox_MouseEnter(sender, e);
                     MapClean();
-                    Hersir.UpdateActions(LabelActions, false);                   
+                    Hersir.UpdateActions(LabelActions, false);          
+                    
+                    if (Hersir.X == 7 && Hersir.Y == 5 && !RaidLindisfarne.Objective1Completed)
+                    {
+                        RaidLindisfarne.Objective1Completed = true;
+                        TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.Gold);
+                        TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                    if (Hersir.X == 0 && Hersir.Y == 0 && RaidLindisfarne.Objective1Completed)
+                    {
+                        Hersir.MissionResult(true, this);
+                    }
                 }
-                
             }
         }
 
@@ -985,16 +1011,105 @@ namespace Raiders_2._1
                 TextBlockMissionTitle.Text = FireBaptism.Title;
                 TextBlockMissionObjective1.Text = FireBaptism.Objective1;
                 TextBlockMissionObjective2.Text = FireBaptism.Objective2;
-                TextBlockMissionObjective2.Foreground = Brushes.White;
+                if (FireBaptism.Objective1Completed)
+                {
+                    TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.Gold);
+                }
+                else
+                {
+                    TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.White);
+                }
+                if (FireBaptism.Objective2Completed)
+                {
+                    TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.Gold);
+                }
+                else
+                {
+                    TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
             else
             {
                 TextBlockMissionTitle.Text = RaidLindisfarne.Title;
                 TextBlockMissionObjective1.Text = RaidLindisfarne.Objective1;
                 TextBlockMissionObjective2.Text = RaidLindisfarne.Objective2;
-                TextBlockMissionObjective2.Foreground = Brushes.Gray;
+                if (RaidLindisfarne.Objective1Completed)
+                {
+                    TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.Gold);
+                    TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.White);
+                }
+                else
+                {
+                    TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.White);
+                    TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.Gray);
+                }
             }
         }
 
+        private void TextBlockMissionObjective1_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (TextBlockMissionObjective1.Text.ToString() == RaidLindisfarne.Objective1 && !RaidLindisfarne.Objective1Completed)
+            {
+                MapClean();
+                Field[5, 7].Source = MissionMarker;
+            }
+            else if (TextBlockMissionObjective1.Text.ToString() == FireBaptism.Objective1 && !FireBaptism.Objective1Completed)
+            {
+                MapClean();
+                Morpslaga.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+                Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
+                if (Thegn.Number > 0)
+                {
+                    Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
+                }
+            }
+        }
+        private void TextBlockMissionObjective1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBlockMissionObjective1.Text.ToString() == RaidLindisfarne.Objective1 && !RaidLindisfarne.Objective1Completed)
+            {
+                if (Morpslaga.Y == 5 && Morpslaga.X == 7)
+                {
+                    Field[5, 7].Source = Morpslaga.Overworld;
+                }
+                else
+                {
+                    Field[5, 7].Source = null;
+                }
+            }
+        }
+
+        private void TextBlockMissionObjective2_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (TextBlockMissionObjective2.Text.ToString() == RaidLindisfarne.Objective2 && RaidLindisfarne.Objective1Completed)
+            {
+                MapClean();
+                Field[0, 0].Source = MissionMarker;
+            }
+            else if (TextBlockMissionObjective2.Text.ToString() == FireBaptism.Objective2)
+            {
+                MapClean();
+                Thegn.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field, TurnNumber);
+                Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
+                if (Morpslaga.Number > 0)
+                {
+                    Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
+                }
+            }
+        }
+        private void TextBlockMissionObjective2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBlockMissionObjective2.Text.ToString() == RaidLindisfarne.Objective2 && RaidLindisfarne.Objective1Completed)
+            {
+                if (Morpslaga.Y == 0 && Morpslaga.X == 0)
+                {
+                    Field[0, 0].Source = Morpslaga.Overworld;
+                }
+                else
+                {
+                    Field[0, 0].Source = null;
+                }
+            }
+        }
     }
 }

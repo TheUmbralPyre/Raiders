@@ -50,3 +50,5 @@ C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.exe
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.pdb
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MainMenu.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MainMenu.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneResult.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneResult.baml
