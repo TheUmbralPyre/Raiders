@@ -19,23 +19,35 @@ namespace Raiders_2._1
     /// </summary>
     public partial class LindisfarneResult : Window
     {
+        private MediaPlayer ResultMusic = new MediaPlayer();
+        private void MusicLoop(object sender, EventArgs e)
+        {
+            ResultMusic.Position = TimeSpan.Zero;
+            ResultMusic.Play();
+        }
+
         public LindisfarneResult(string Result)
         {
             InitializeComponent();
 
             LabelResult.Content = Result;
+            ResultMusic.MediaEnded += new EventHandler(MusicLoop);
+            ResultMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeVictory.wav"));
 
             if (Result == "Defeat!")
             {
                 LabelResult.Content = "Defeat!";
                 Image1.Source = new BitmapImage(new Uri("Resources/HersirOverworldDefeated.png", UriKind.Relative));
                 Image2.Source = new BitmapImage(new Uri("Resources/HersirOverworldDefeated.png", UriKind.Relative));
+                ResultMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeDefeat.wav"));
             }
+            ResultMusic.Play();
         }
 
         private void ButtonRestartMission_Click(object sender, RoutedEventArgs e)
         {
             MainWindow Lindisfarne = new MainWindow();
+            ResultMusic.Stop();
             this.Close();
             Lindisfarne.ShowDialog();
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Raiders_2._1"
         mc:Ignorable="d"
-        Title="Lindisfarne" Height="692.567" Width="1027.472" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.ico" Initialized="Lindisfarne_Initialized">
+        Title="Lindisfarne" Height="692.567" Width="1027.472" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.ico" Loaded="Lindisfarne_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Background.jpg"/>
     </Window.Background>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace Raiders_2._1
 {
@@ -23,6 +24,10 @@ namespace Raiders_2._1
         private Image[,] Field = new Image[6,8];
         private BitmapImage MarchImage = new BitmapImage(new Uri("Resources/Move.png", UriKind.Relative));
         private BitmapImage MissionMarker = new BitmapImage(new Uri("Resources/MissionMarker.png", UriKind.Relative));
+        private MediaPlayer LindisfarneMusic = new MediaPlayer();
+        private SoundPlayer MarchSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeMarch.wav");
+        private bool CurrentMusic = false;
+
         private int TurnNumber = 1;
 
         public abstract class Unit
@@ -703,8 +708,21 @@ namespace Raiders_2._1
                 }
             }
         }
+        private void MusicBattle()
+        {
+            LindisfarneMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeBattle.wav"));
+        }
+        private void MusicPeace()
+        {
+            LindisfarneMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemePeace.wav"));
+        }
+        private void MusicLoop(object sender, EventArgs e)
+        {
+            LindisfarneMusic.Position = TimeSpan.Zero;
+            LindisfarneMusic.Play();
+        }
 
-        public Player Hersir = new Player() { Y = 2, X = 2, Number = 20, Strength = 0.4, Wounded = 0, Actions = 20, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
+        public Player Hersir = new Player() { Y = 0, X = 0, Number = 20, Strength = 0.4, Wounded = 0, Actions = 20, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
         public Enemy0 Thegn = new Enemy0() { Y = 3, X = 2, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
         public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
 
@@ -716,8 +734,9 @@ namespace Raiders_2._1
             InitializeComponent();
         }
 
-        private void Lindisfarne_Initialized(object sender, EventArgs e)
+        private void Lindisfarne_Loaded(object sender, EventArgs e)
         {
+            
             int NumberOfFieldBox = 0;
             for (int y = 0; y < Field.GetLength(0); y++)
             {
@@ -745,11 +764,14 @@ namespace Raiders_2._1
             TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.Gray);
             LabelActions.Content = "Actions Left : 2";
 
-            /*
+            /*            
             LindisfarneInfo1 Info1 = new LindisfarneInfo1();
             Info1.ShowDialog();
             */
 
+            LindisfarneMusic.MediaEnded += new EventHandler(MusicLoop);
+            MusicPeace();
+            LindisfarneMusic.Play();
         }
 
         private void FieldBox_MouseEnter(object sender, MouseEventArgs e)
@@ -847,16 +869,28 @@ namespace Raiders_2._1
                     Thegn.AssaultConclude(Field, EnemyCasualties);
                 }
             }
-
             if (Morpslaga.Number > 0)
             {
                 if (!Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
                 {
                     Morpslaga.Scout(Field, Hersir.Y, Hersir.X);
+                    if ((Thegn.CheckForEnemy(Hersir.Y, Hersir.X) || Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X)) && CurrentMusic == false)
+                    {
+                        MusicBattle();
+                        LindisfarneMusic.Play();
+                        CurrentMusic = true;
+                    }
+
                 }
                 else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number <= 10)
                 {
                     Morpslaga.Escape(Field, Hersir.Y, Hersir.X);
+                    if ((!Thegn.CheckForEnemy(Hersir.Y, Hersir.X) && !Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X)) && CurrentMusic == true)
+                    {
+                        MusicPeace();
+                        LindisfarneMusic.Play();
+                        CurrentMusic = false;
+                    }
                 }
                 else if (Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X) && Morpslaga.Number > 10)
                 {
@@ -874,6 +908,12 @@ namespace Raiders_2._1
             TurnNumber++;
             
             Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+            
+            if (Hersir.Number <= 0)
+            {
+                LindisfarneMusic.Stop();
+                Hersir.MissionResult(false, this);
+            }
             if (Thegn.Number > 0)
             {
                 Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
@@ -888,119 +928,136 @@ namespace Raiders_2._1
         {
             Image image = sender as Image;
 
-            if (e.ChangedButton == MouseButton.Right)
+            switch (e.ChangedButton)
             {
-                if (image.Source == Hersir.OverworldSelected)
-                {
-                    Hersir.ActionCheck(Field, MarchImage,Thegn.Overworld,Morpslaga.Overworld,Thegn.OverworldAssault,Morpslaga.OverworldAssault);
-                }
-                else if (image.Source == Thegn.OverworldSelected)
-                {
-                    Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Thegn.Number, Thegn.Strength * 2, Hersir.Wounded);
-                }
-                else if (image.Source == Morpslaga.OverworldSelected)
-                {
-                    Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
-                }
-            }
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                if (image.Source.ToString() == Hersir.Overworld.ToString())
-                {
-                    Hersir.Select(SelectedPicture,SelectedName,SelectedNumber,SelectedStrength,SelectedSpecial,SelectedText, Field);
-                    FieldBox_MouseEnter(sender, e);
-                    if (Thegn.Number > 0)
-                    {
-                        Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
-                    }
-                    if (Morpslaga.Number > 0)
-                    {
-                        Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
-                    }
-                }
-                else if (image.Source.ToString() == Hersir.OverworldSelected.ToString())
-                {
-                    MapClean();
-                }
+                case MouseButton.Right:
 
-                else if (image.Source.ToString() == Thegn.Overworld.ToString())
-                {
-                    Thegn.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field, TurnNumber);
-                    FieldBox_MouseEnter(sender, e);
-                    if (Morpslaga.Number > 0 && Field[Morpslaga.Y, Morpslaga.X].Source.ToString() != Morpslaga.OverworldAssault.ToString())
+                    if (image.Source == Hersir.OverworldSelected)
                     {
-                        Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
+                        Hersir.ActionCheck(Field, MarchImage, Thegn.Overworld, Morpslaga.Overworld, Thegn.OverworldAssault, Morpslaga.OverworldAssault);
                     }
-                    Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
-                }
-                else if (image.Source.ToString() == Thegn.OverworldAssault.ToString() && Hersir.Actions > 0)
-                {
-                    Enemy0Assault ThegnAssault = new Enemy0Assault(this);
-                    ThegnAssault.ShowDialog();
-                    Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
-                    Hersir.UpdateActions(LabelActions, false);
-                    MapClean();
-                    
-                    if (Hersir.Number <= 0)
+                    else if (image.Source == Thegn.OverworldSelected)
                     {
-                        Hersir.MissionResult(false, this);
+                        Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Thegn.Number, Thegn.Strength * 2, Hersir.Wounded);
                     }
-                    if (Thegn.Number <= 0)
+                    else if (image.Source == Morpslaga.OverworldSelected)
                     {
-                        Field[Thegn.Y, Thegn.X].Source = null;
-                        Thegn.X = 0;
-                        Thegn.Y = 0;
+                        Hersir.AssaultLog(Hersir.Number, Hersir.Strength, Morpslaga.Number, Morpslaga.Strength, Hersir.Wounded);
                     }
-                }
+                    break;
+                
+                case MouseButton.Left:
 
-                else if (image.Source.ToString() == Morpslaga.Overworld.ToString())
-                {
-                    Morpslaga.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
-                    FieldBox_MouseEnter(sender, e);
-                    if (Thegn.Number > 0 && Field[Thegn.Y, Thegn.X].Source.ToString() != Thegn.OverworldAssault.ToString())
+                    if (image.Source.ToString() == Hersir.Overworld.ToString())
                     {
-                        Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
+                        Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+                        FieldBox_MouseEnter(sender, e);
+                        if (Thegn.Number > 0)
+                        {
+                            Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
+                        }
+                        if (Morpslaga.Number > 0)
+                        {
+                            Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
+                        }
                     }
-                    Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
-                }
-                else if (image.Source.ToString() == Morpslaga.OverworldAssault.ToString() && Hersir.Actions > 0)
-                {
-                    Enemy1Assault MorpslagaAssault = new Enemy1Assault(this);
-                    MorpslagaAssault.ShowDialog();
-                    MapClean();
-                    Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
-                    Hersir.UpdateActions(LabelActions, false);
+                    else if (image.Source.ToString() == Hersir.OverworldSelected.ToString())
+                    {
+                        MapClean();
+                    }
 
-                    if (Hersir.Number <= 0)
+                    else if (image.Source.ToString() == Thegn.Overworld.ToString())
                     {
-                        Hersir.MissionResult(false, this);
+                        Thegn.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field, TurnNumber);
+                        FieldBox_MouseEnter(sender, e);
+                        if (Morpslaga.Number > 0 && Field[Morpslaga.Y, Morpslaga.X].Source.ToString() != Morpslaga.OverworldAssault.ToString())
+                        {
+                            Field[Morpslaga.Y, Morpslaga.X].Source = Morpslaga.Overworld;
+                        }
+                        Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
                     }
-                    if (Morpslaga.Number <= 0)
+                    else if (image.Source.ToString() == Thegn.OverworldAssault.ToString() && Hersir.Actions > 0)
                     {
-                        Field[Morpslaga.Y, Morpslaga.X].Source = null;
-                        Morpslaga.Y = 0;
-                        Morpslaga.X = 0;
-                    }
-                }
+                        Enemy0Assault ThegnAssault = new Enemy0Assault(this);
+                        ThegnAssault.ShowDialog();
+                        Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+                        Hersir.UpdateActions(LabelActions, false);
+                        MapClean();
 
-                else if (image.Source.ToString() == MarchImage.ToString() && Hersir.Actions > 0)
-                {
-                    Hersir.MarchConclude(Field, image);
-                    FieldBox_MouseEnter(sender, e);
-                    MapClean();
-                    Hersir.UpdateActions(LabelActions, false);          
-                    
-                    if (Hersir.X == 7 && Hersir.Y == 5 && !RaidLindisfarne.Objective1Completed)
-                    {
-                        RaidLindisfarne.Objective1Completed = true;
-                        TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.Gold);
-                        TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.White);
+                        if (Hersir.Number <= 0)
+                        {
+                            LindisfarneMusic.Stop();
+                            Hersir.MissionResult(false, this);
+                        }
+                        if (Thegn.Number <= 0)
+                        {
+                            Field[Thegn.Y, Thegn.X].Source = null;
+                        }
                     }
-                    if (Hersir.X == 0 && Hersir.Y == 0 && RaidLindisfarne.Objective1Completed)
+
+                    else if (image.Source.ToString() == Morpslaga.Overworld.ToString())
                     {
-                        Hersir.MissionResult(true, this);
+                        Morpslaga.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+                        FieldBox_MouseEnter(sender, e);
+                        if (Thegn.Number > 0 && Field[Thegn.Y, Thegn.X].Source.ToString() != Thegn.OverworldAssault.ToString())
+                        {
+                            Field[Thegn.Y, Thegn.X].Source = Thegn.Overworld;
+                        }
+                        Field[Hersir.Y, Hersir.X].Source = Hersir.Overworld;
                     }
-                }
+                    else if (image.Source.ToString() == Morpslaga.OverworldAssault.ToString() && Hersir.Actions > 0)
+                    {
+                        Enemy1Assault MorpslagaAssault = new Enemy1Assault(this);
+                        MorpslagaAssault.ShowDialog();
+                        MapClean();
+                        Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
+                        Hersir.UpdateActions(LabelActions, false);
+
+                        if (Hersir.Number <= 0)
+                        {
+                            LindisfarneMusic.Stop();
+                            Hersir.MissionResult(false, this);
+                        }
+                        if (Morpslaga.Number <= 0)
+                        {
+                            Field[Morpslaga.Y, Morpslaga.X].Source = null;
+                        }
+                    }
+
+                    else if (image.Source.ToString() == MarchImage.ToString() && Hersir.Actions > 0)
+                    {
+                        MarchSF.Play();
+                        Hersir.MarchConclude(Field, image);
+                        FieldBox_MouseEnter(sender, e);
+                        MapClean();
+                        Hersir.UpdateActions(LabelActions, false);
+
+                        if ((Thegn.CheckForEnemy(Hersir.Y, Hersir.X) || Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X)) && CurrentMusic == false)
+                        {
+                            MusicBattle();
+                            LindisfarneMusic.Play();
+                            CurrentMusic = true;
+                        }
+                        if ((!Thegn.CheckForEnemy(Hersir.Y, Hersir.X) && !Morpslaga.CheckForEnemy(Hersir.Y, Hersir.X)) && CurrentMusic == true)
+                        {
+                            MusicPeace();
+                            LindisfarneMusic.Play();
+                            CurrentMusic = false;
+                        }
+
+                        if (Hersir.X == 7 && Hersir.Y == 5 && !RaidLindisfarne.Objective1Completed)
+                        {
+                            RaidLindisfarne.Objective1Completed = true;
+                            TextBlockMissionObjective1.Foreground = new SolidColorBrush(Colors.Gold);
+                            TextBlockMissionObjective2.Foreground = new SolidColorBrush(Colors.White);
+                        }
+                        if (Hersir.X == 0 && Hersir.Y == 0 && RaidLindisfarne.Objective1Completed)
+                        {
+                            LindisfarneMusic.Stop();
+                            Hersir.MissionResult(true, this);
+                        }
+                    }
+                    break;
             }
         }
 
@@ -1111,5 +1168,6 @@ namespace Raiders_2._1
                 }
             }
         }
+
     }
 }
