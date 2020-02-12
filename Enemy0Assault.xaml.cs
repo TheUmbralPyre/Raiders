@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace Raiders_2._1
 {
@@ -25,6 +26,8 @@ namespace Raiders_2._1
             public BitmapImage NotSelected { get; set; }
             public BitmapImage Selected { get; set; }
         }
+        private SoundPlayer AssaultBeginSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeAssaultLaunch.wav");
+        private SoundPlayer AssaultEndSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeAssaultEnd.wav");
 
         private Formation ShieldWall = new Formation() { NotSelected = new BitmapImage(new Uri("Resources/FormationShieldWall.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationShieldWallSelected.jpg", UriKind.Relative)) };
         private Formation Wedge = new Formation() { NotSelected = new BitmapImage(new Uri("Resources/FormationWedge.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationWedgeSelected.jpg", UriKind.Relative)) };
@@ -121,6 +124,7 @@ namespace Raiders_2._1
 
         public Enemy0Assault(MainWindow mainWindow)
         {
+            AssaultBeginSF.PlayLooping();
             InitializeComponent();
             MW = mainWindow;
 
@@ -134,6 +138,8 @@ namespace Raiders_2._1
 
         private void Assault_Click(object sender, RoutedEventArgs e)
         {
+            AssaultBeginSF.Stop();
+            AssaultEndSF.PlaySync();
             MW.Hersir.Number -= UnitCasualties;
             MW.Thegn.Number -= EnemyCasualties;
             MW.Hersir.Wounded = Wounded;

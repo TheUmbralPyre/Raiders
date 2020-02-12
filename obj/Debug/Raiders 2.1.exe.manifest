@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Raiders 2.1.exe" size="13389272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Raiders 2.1.exe" size="13459928">
       <assemblyIdentity name="Raiders 2.1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vUY5XbQmPr7tPik5oF5ht0yvIduNUm27GLWm2fzCCz8=</dsig:DigestValue>
+        <dsig:DigestValue>KiHj/6EGUpw1XlrM27YBxP8drzF313DkZJi8k11XTaY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

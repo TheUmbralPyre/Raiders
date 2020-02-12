@@ -26,6 +26,7 @@ namespace Raiders_2._1
         private BitmapImage MissionMarker = new BitmapImage(new Uri("Resources/MissionMarker.png", UriKind.Relative));
         private MediaPlayer LindisfarneMusic = new MediaPlayer();
         private SoundPlayer MarchSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeMarch.wav");
+        private SoundPlayer AssaultSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeAssaultPlan.wav");
         private bool CurrentMusic = false;
 
         private int TurnNumber = 1;
@@ -306,10 +307,20 @@ namespace Raiders_2._1
                 if (!EndTurn)
                 {
                     Actions--;
+                    switch (Actions)
+                    {
+                        case 1:
+                            LabelActions.Foreground = new SolidColorBrush(Colors.Yellow);
+                            break;
+                        case 0:
+                            LabelActions.Foreground = new SolidColorBrush(Colors.Red);
+                            break;
+                    }
                 }
                 else
                 {
                     Actions = 2;
+                    LabelActions.Foreground = new SolidColorBrush(Colors.LightGreen);
                 }
                 LabelActions.Content = "Actions Left : " + Actions;
             }           
@@ -722,9 +733,9 @@ namespace Raiders_2._1
             LindisfarneMusic.Play();
         }
 
-        public Player Hersir = new Player() { Y = 0, X = 0, Number = 20, Strength = 0.4, Wounded = 0, Actions = 20, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
-        public Enemy0 Thegn = new Enemy0() { Y = 3, X = 2, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
-        public Enemy1 Morpslaga = new Enemy1() { Y = 3, X = 1, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
+        public Player Hersir = new Player() { Y = 0, X = 0, Number = 20, Strength = 0.4, Wounded = 0, Actions = 2, Description = Properties.Resources.HersirDescription, Name = "Hersir", Overworld = new BitmapImage(new Uri("Resources/HersirOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/HersirPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/HersirOverworldSelected.png", UriKind.Relative)) };
+        public Enemy0 Thegn = new Enemy0() { Y = 3, X = 3, Number = 20, Strength = 0.25, Description = Properties.Resources.ThegnDescription, Name = "Thegn", Overworld = new BitmapImage(new Uri("Resources/ThegnOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/ThegnPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/ThegnOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/ThegnOverworldAssault.png", UriKind.Relative))};
+        public Enemy1 Morpslaga = new Enemy1() { Y = 2, X = 5, Number = 15, Strength = 0.5, Description = Properties.Resources.MorpslagaDescription, Name = "Morpslaga", Overworld = new BitmapImage(new Uri("Resources/MorpslagaOverworld.png", UriKind.Relative)), Picture = new BitmapImage(new Uri("Resources/MorpslagaPicture.jpg", UriKind.Relative)), OverworldSelected = new BitmapImage(new Uri("Resources/MorpslagaOverworldSelected.png", UriKind.Relative)), OverworldAssault = new BitmapImage(new Uri("Resources/MorpslagaOverworldAssault.png", UriKind.Relative))};
 
         readonly Mission RaidLindisfarne = new Mission() {Title = "The Raid of Lindisfarne", Objective1 = "Reach the Abby", Objective1Completed = false, Objective2 = "Escape the Island", Objective2Completed = false};
         readonly Mission FireBaptism = new Mission() { Title = "Batism by Fire", Objective1 = "Defeat the Morpslaga", Objective1Completed = false, Objective2 = "Defeat the Thegn", Objective2Completed = false };
@@ -978,6 +989,7 @@ namespace Raiders_2._1
                     }
                     else if (image.Source.ToString() == Thegn.OverworldAssault.ToString() && Hersir.Actions > 0)
                     {
+                        AssaultSF.PlaySync();
                         Enemy0Assault ThegnAssault = new Enemy0Assault(this);
                         ThegnAssault.ShowDialog();
                         Hersir.Select(SelectedPicture, SelectedName, SelectedNumber, SelectedStrength, SelectedSpecial, SelectedText, Field);
@@ -1007,6 +1019,7 @@ namespace Raiders_2._1
                     }
                     else if (image.Source.ToString() == Morpslaga.OverworldAssault.ToString() && Hersir.Actions > 0)
                     {
+                        AssaultSF.PlaySync();
                         Enemy1Assault MorpslagaAssault = new Enemy1Assault(this);
                         MorpslagaAssault.ShowDialog();
                         MapClean();
