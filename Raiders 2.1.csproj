@@ -95,11 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Enemy0Assault.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Enemy1Assault.xaml">
+    <Page Include="EnemyAssault.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,11 +111,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Enemy0Assault.xaml.cs">
-      <DependentUpon>Enemy0Assault.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Enemy1Assault.xaml.cs">
-      <DependentUpon>Enemy1Assault.xaml</DependentUpon>
+    <Compile Include="EnemyAssault.xaml.cs">
+      <DependentUpon>EnemyAssault.xaml</DependentUpon>
     </Compile>
     <Compile Include="LindisfarneInfo1.xaml.cs">
       <DependentUpon>LindisfarneInfo1.xaml</DependentUpon>
@@ -267,9 +260,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LindisfarneInfo1.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\ClickLeft.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -345,19 +335,22 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\HersirPicture.jpg">
+    <Resource Include="Resources\HersirPicture.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\MorpslagaPicture.jpg">
+    <Resource Include="Resources\ThegnPicture.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\ThegnPicture.jpg">
+    <Resource Include="Resources\MorpslagaPicture.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LindisfarneInfo1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

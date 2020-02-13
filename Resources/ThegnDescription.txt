@@ -1,7 +1,10 @@
 ﻿The Thegn are elite warriors of the Anglo-Saxons.
-They excel in defending locations from enemy soldiers and breaking sieges.
-They have already established an outpost in the region, and are eager to protect it with their lives.
+These particular warriors were sent to Lindisfarne to
+oversee the training of a band of criminals who are
+trying to regain their lost honor. 
 
-Ability:
-『SLO』
-After each turn, this unit reinforces itself and allies near their outpost.
+@SLO@
+Every second turn-this unit reinforces itself.
+
+*Outta my Mind*
+The Morpslaga will also be reinforced if they are near the Thegn.

@@ -122,29 +122,24 @@
             <Border.Background>
                 <ImageBrush ImageSource="Resources/Background3.jpg" TileMode="Tile" Stretch="UniformToFill"/>
             </Border.Background>
-            <StackPanel>
-                <Image x:Name="SelectedPicture" HorizontalAlignment="Left" Height="174" VerticalAlignment="Top" Width="158" Margin="10,9.2,0,0" Stretch="Fill" OpacityMask="Black"/>
-                <Label x:Name="SelectedName" FontSize="35" FontFamily="Norse Bold" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="">
-                    <Label.Style>
-                        <Style TargetType="Label">
-                            <Style.Triggers>
-                                <Trigger Property="IsVisible" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard TargetProperty="Opacity">
-                                                <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="1" To="0.0" Duration="0:0:4" RepeatBehavior="Forever" AutoReverse="True" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Label.Style>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="SelectedPicture" HorizontalAlignment="Left" Height="174" VerticalAlignment="Top" Width="158" Margin="10,9,0,0" Stretch="Fill" OpacityMask="Black" Grid.Row="0" Grid.RowSpan="1"/>
+                <Label x:Name="SelectedName" FontSize="35" FontFamily="Norse Bold" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" >
+                    <TextBlock x:Name="SelectedNameText" TextWrapping="WrapWithOverflow">
+                    </TextBlock>
                 </Label>
-                    <Label x:Name="SelectedNumber" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000"/>
-                <Label x:Name="SelectedStrength" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
-                <Label x:Name="SelectedSpecial" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <RichTextBox x:Name="SelectedText" Margin="10,0,10.4,0" Foreground="White" IsReadOnlyCaretVisible="True" Focusable="False" AllowDrop="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="13" HorizontalScrollBarVisibility="Auto" IsEnabled="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Height="307" VerticalAlignment="Bottom" Block.LineHeight="6">
+                <Label x:Name="SelectedNumber" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000" Grid.Row="2"/>
+                <Label x:Name="SelectedStrength" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Grid.Row="3"/>
+                <Label x:Name="SelectedSpecial" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4"/>
+                <RichTextBox x:Name="SelectedText" Margin="10,0,10.4,10.4" Foreground="White" IsReadOnlyCaretVisible="True" Focusable="False" AllowDrop="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="13" HorizontalScrollBarVisibility="Auto" IsEnabled="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Height="236" VerticalAlignment="Bottom" Block.LineHeight="6" Grid.Row="5">
                     <RichTextBox.BorderBrush>
                         <ImageBrush/>
                     </RichTextBox.BorderBrush>
@@ -152,7 +147,8 @@
                         <ImageBrush/>
                     </RichTextBox.Background>
                 </RichTextBox>
-            </StackPanel>
+            </Grid>
+
         </Border>
         <Border x:Name="UI2" Grid.Column="2" Margin="15.8,10,9.6,10">
             <Border.Background>

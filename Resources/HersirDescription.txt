@@ -1,9 +1,10 @@
-﻿These particular warriors are veterans of many battles.
-Although many of their members have left them their
-knowledge and experience in the art of war are unparalleled.
+﻿These particular warriors are a formidable band of nordic veterans.
+After fighting many meaningless battles, they lost their purpose and
+decided to leave their fate in the hands of the gods.
+Unbeknownst to them, their actions today will send tremors throughout 
+all of Europe and will lead to a new age-full of brutality, death, and misery.
 
-Ability:
-『Living Proof』
+@Living Proof@
 After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
 If you don't use Assault again, the wounded warriors will recover and fight another day.
 However, if you do, the wounded warriors will fight with diminished strength and perish after the fight.

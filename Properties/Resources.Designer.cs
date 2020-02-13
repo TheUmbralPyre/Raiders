@@ -201,15 +201,15 @@ namespace Raiders_2._1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These particular warriors are veterans of many battles.
-        ///Although many of their members have left them their
-        ///knowledge and experience in the art of war are unparalleled.
+        ///   Looks up a localized string similar to These particular warriors are a formidable band of nordic veterans.
+        ///After fighting many meaningless battles, they lost their purpose and
+        ///decided to leave their fate in the hands of the gods.
+        ///Unbeknownst to them, their actions today will send tremors throughout 
+        ///all of Europe and will lead to a new age-full of brutality, death, and misery.
         ///
-        ///Ability:
-        ///『Living Proof』
+        ///@Living Proof@
         ///After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
-        ///If you don&apos;t use Assault again, the wounded warriors will recover and fight another day.
-        ///However, if you do, the wounded warriors will fight with diminished strength and perish after the fight..
+        ///If you don&apos;t use Assault again, the wounded warriors [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string HersirDescription {
             get {
@@ -297,16 +297,15 @@ namespace Raiders_2._1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Morpslaga are ambushers.
-        ///There is no honor for them.
-        ///They will run away when injured and attack you when numerous.
-        ///Unfortunately for you, they already know that you are here.
+        ///   Looks up a localized string similar to The Morpslaga used to be bandits.
+        ///If they had the choice, they would have already run away.
+        ///They promised to the Thegn that they would reform and gain their honor back. And slaughtering a few pagans will definitely gain it back. 
         ///
-        ///Ability:
-        ///『Let Me Live/Let Me Die』
-        ///This unit will have increased strength when they ambush their foe.
-        ///However, they are vulnerable to assaults. 
-        ///.
+        ///@Let Me Live/Let Me Die@
+        ///The Morpslaga will run away when injured.
+        ///
+        ///*Howlin&apos; for You!*
+        ///The Morpslaga will seek out the Hersir when numerous..
         /// </summary>
         internal static string MorpslagaDescription {
             get {
@@ -376,12 +375,15 @@ namespace Raiders_2._1.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to The Thegn are elite warriors of the Anglo-Saxons.
-        ///They excel in defending locations from enemy soldiers and breaking sieges.
-        ///They have already established an outpost in the region, and are eager to protect it with their lives.
+        ///These particular warriors were sent to Lindisfarne to
+        ///oversee the training of a band of criminals who are
+        ///trying to regain their lost honor. 
         ///
-        ///Ability:
-        ///『SLO』
-        ///After each turn, this unit reinforces itself and allies near their outpost..
+        ///@SLO@
+        ///Every second turn-this unit reinforces itself.
+        ///
+        ///*Outta my Mind*
+        ///The Morpslaga will also be reinforced if they are near the Thegn..
         /// </summary>
         internal static string ThegnDescription {
             get {
