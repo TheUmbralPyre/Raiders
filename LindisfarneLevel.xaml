@@ -172,14 +172,14 @@
                     <TextBlock x:Name="TextRightClick" TextWrapping="WrapWithOverflow">
                     </TextBlock>
                 </Label>
-                <Image x:Name="RightClick" Source="Resources/ClickRight.png" Grid.Row ="5"/>
+                <Image x:Name="ImageRightClick" Source="Resources/ClickNeutral.png" Grid.Row ="5"/>
                 <Label x:Name="LabelLeftClick" Margin="10,0.2,9.8,70.8" FontSize="19" Foreground="White" Grid.Row="4" Background="Transparent" Height="61" Width="141" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" FontFamily="Norse">
                     <TextBlock x:Name="TextLeftClick" TextWrapping="WrapWithOverflow">
                     </TextBlock>
                 </Label>
-                <Image x:Name="LeftClick" Source="Resources/ClickLeft.png" Grid.Row ="3"/>
-                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse" MouseEnter="TextBlockMissionObjective2_MouseEnter" MouseLeave="TextBlockMissionObjective2_MouseLeave"/>
-                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse" MouseEnter="TextBlockMissionObjective1_MouseEnter" MouseLeave="TextBlockMissionObjective1_MouseLeave"/>
+                <Image x:Name="ImageLeftClick" Source="Resources/ClickNeutral.png" Grid.Row ="3"/>
+                <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
+                <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
                 <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
             </Grid>
         </Border>

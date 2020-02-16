@@ -32,14 +32,14 @@ namespace Raiders_2._1
 
             LabelResult.Content = Result;
             ResultMusic.MediaEnded += new EventHandler(MusicLoop);
-            ResultMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeVictory.wav"));
+            ResultMusic.Open(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/ThemeVictory.wav"));
 
             if (Result == "Defeat!")
             {
                 LabelResult.Content = "Defeat!";
                 Image1.Source = new BitmapImage(new Uri("Resources/HersirOverworldDefeated.png", UriKind.Relative));
                 Image2.Source = new BitmapImage(new Uri("Resources/HersirOverworldDefeated.png", UriKind.Relative));
-                ResultMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeDefeat.wav"));
+                ResultMusic.Open(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/ThemeDefeat.wav"));
             }
             ResultMusic.Play();
         }

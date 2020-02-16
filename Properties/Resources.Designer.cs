@@ -93,16 +93,6 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Border {
-            get {
-                object obj = ResourceManager.GetObject("Border", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap BorderField {
             get {
                 object obj = ResourceManager.GetObject("BorderField", resourceCulture);
@@ -123,6 +113,16 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClickNeutral {
+            get {
+                object obj = ResourceManager.GetObject("ClickNeutral", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClickRight {
             get {
                 object obj = ResourceManager.GetObject("ClickRight", resourceCulture);
@@ -136,6 +136,46 @@ namespace Raiders_2._1.Properties {
         internal static System.Drawing.Bitmap EventImage1 {
             get {
                 object obj = ResourceManager.GetObject("EventImage1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FalseMorpslaga1 {
+            get {
+                object obj = ResourceManager.GetObject("FalseMorpslaga1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FalseMorpslaga1Selected {
+            get {
+                object obj = ResourceManager.GetObject("FalseMorpslaga1Selected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FalseMorpslaga2 {
+            get {
+                object obj = ResourceManager.GetObject("FalseMorpslaga2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FalseMorpslaga2Selected {
+            get {
+                object obj = ResourceManager.GetObject("FalseMorpslaga2Selected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -207,7 +247,7 @@ namespace Raiders_2._1.Properties {
         ///Unbeknownst to them, their actions today will send tremors throughout 
         ///all of Europe and will lead to a new age-full of brutality, death, and misery.
         ///
-        ///@Living Proof@
+        ///♦Living Proof♦
         ///After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
         ///If you don&apos;t use Assault again, the wounded warriors [rest of string was truncated]&quot;;.
         /// </summary>
@@ -218,11 +258,92 @@ namespace Raiders_2._1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These particular warriors are a formidable band of nordic veterans.
+        ///After fighting many meaningless battles, they lost their purpose and
+        ///decided to leave their fate in the hands of the gods.
+        ///Unbeknownst to them, their actions today will send tremors throughout 
+        ///all of Europe and will lead to a new age-full of brutality, death, and misery.
+        ///
+        ///♦Living Proof♦
+        ///After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
+        ///If you don&apos;t use Assault again, the wounded warriors [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HersirDescription1 {
+            get {
+                return ResourceManager.GetString("HersirDescription1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These particular warriors are a formidable band of nordic veterans.
+        ///After fighting many meaningless battles, they lost their purpose and
+        ///decided to leave their fate in the hands of the gods.
+        ///Unbeknownst to them, their actions today will send tremors throughout 
+        ///all of Europe and will lead to a new age-full of brutality, death, and misery.
+        ///
+        ///♦Living Proof♦
+        ///After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
+        ///If you don&apos;t use Assault again, the wounded warriors [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HersirDescription2 {
+            get {
+                return ResourceManager.GetString("HersirDescription2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These particular warriors are a formidable band of nordic veterans.
+        ///After fighting many meaningless battles, they lost their purpose and
+        ///decided to leave their fate in the hands of the gods.
+        ///Unbeknownst to them, their actions today will send tremors throughout 
+        ///all of Europe and will lead to a new age-full of brutality, death, and misery.
+        ///
+        ///♦Living Proof♦
+        ///After an Assault-half of your soldiers, who would have died otherwise, become wounded instead.
+        ///If you don&apos;t use Assault again, the wounded warriors [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string HersirDescription3 {
+            get {
+                return ResourceManager.GetString("HersirDescription3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap HersirOverworld {
             get {
                 object obj = ResourceManager.GetObject("HersirOverworld", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworld1 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworld1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworld2 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworld2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworld3 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworld3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +364,36 @@ namespace Raiders_2._1.Properties {
         internal static System.Drawing.Bitmap HersirOverworldSelected {
             get {
                 object obj = ResourceManager.GetObject("HersirOverworldSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworldSelected1 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworldSelected1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworldSelected2 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworldSelected2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HersirOverworldSelected3 {
+            get {
+                object obj = ResourceManager.GetObject("HersirOverworldSelected3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -279,6 +430,16 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MapCrossroads {
+            get {
+                object obj = ResourceManager.GetObject("MapCrossroads", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MapLindisfarne {
             get {
                 object obj = ResourceManager.GetObject("MapLindisfarne", resourceCulture);
@@ -289,9 +450,19 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MissionMarker {
+        internal static System.Drawing.Bitmap Mission {
             get {
-                object obj = ResourceManager.GetObject("MissionMarker", resourceCulture);
+                object obj = ResourceManager.GetObject("Mission", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MissionReceive {
+            get {
+                object obj = ResourceManager.GetObject("MissionReceive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -301,10 +472,10 @@ namespace Raiders_2._1.Properties {
         ///If they had the choice, they would have already run away.
         ///They promised to the Thegn that they would reform and gain their honor back. And slaughtering a few pagans will definitely gain it back. 
         ///
-        ///@Let Me Live/Let Me Die@
+        ///♦Let Me Live/Let Me Die♦
         ///The Morpslaga will run away when injured.
         ///
-        ///*Howlin&apos; for You!*
+        ///•Howlin&apos; for You!•
         ///The Morpslaga will seek out the Hersir when numerous..
         /// </summary>
         internal static string MorpslagaDescription {
@@ -379,10 +550,10 @@ namespace Raiders_2._1.Properties {
         ///oversee the training of a band of criminals who are
         ///trying to regain their lost honor. 
         ///
-        ///@SLO@
+        ///♦SLO♦
         ///Every second turn-this unit reinforces itself.
         ///
-        ///*Outta my Mind*
+        ///•Outta my Mind•
         ///The Morpslaga will also be reinforced if they are near the Thegn..
         /// </summary>
         internal static string ThegnDescription {

@@ -50,3 +50,9 @@ C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneResu
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneResult.baml
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\EnemyAssault.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\EnemyAssault.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\RankUp.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\RankUp.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MorpslagaAmbush.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MorpslagaAmbush.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\ThegnSally.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\ThegnSally.baml

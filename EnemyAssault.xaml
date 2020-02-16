@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Raiders_2._1"
         mc:Ignorable="d"
-        Title="Thegn Assault" Height="672.356" Initialized="Window_Initialized" WindowStartupLocation="CenterScreen">
+        Title="Assault" Height="672.356" Initialized="Window_Initialized" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Background3.jpg"/>
     </Window.Background>
@@ -37,7 +37,7 @@
         <Image x:Name="ImageEnemy" Source="Resources/ThegnOverworld.png" Grid.Column="2"/>
         <Label x:Name="LabelEnemyNumber" Content="Number of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  FontSize="21" Foreground="LightSeaGreen" FontFamily="Norse"/>
         <Label x:Name="LabelEnemyStrength" Content="Strength of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3"  FontSize="21" Foreground="Red" FontFamily="Norse"/>
-        <Image x:Name="EnemyFormation" Source="Resources/FormationShieldWallSelected.jpg" Grid.Column="2" Grid.Row="1"/>
+        <Image x:Name="EnemyFormation" Source="Resources/FormationShieldWallSelected.jpg" Grid.Column="2" Grid.Row="1" FlowDirection="RightToLeft"/>
         <Label x:Name="FormationInfo"  Content="Choose a Formation!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="21" Foreground="White" FontFamily="Norse"/>
         <Label x:Name="DeathInfo" Content="? Hersir will be Killed!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" FontSize="21" Foreground="DarkSeaGreen" FontFamily="Norse"/>
         <Label x:Name="KillInfo"  Content="? of Thegn will Die!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="21" Foreground="Crimson" FontFamily="Norse"/>

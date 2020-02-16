@@ -31,7 +31,7 @@ namespace Raiders_2._1
             InitializeComponent();
 
             MainMenuMusic.MediaEnded += new EventHandler(MusicLoop);
-            MainMenuMusic.Open(new Uri("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeMainMenu.wav"));
+            MainMenuMusic.Open(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/ThemeMainMenu.wav"));
             MainMenuMusic.Play();
         }
 
@@ -40,7 +40,7 @@ namespace Raiders_2._1
             MainMenuMusic.Stop();
             MainWindow Lindisfarne = new MainWindow();
             this.Close();
-            Lindisfarne.ShowDialog();
+            Lindisfarne.Show();
         }
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)

@@ -21,87 +21,179 @@ namespace Raiders_2._1
     public partial class EnemyAssault : Window
     {
         MainWindow MW = new MainWindow();
+        
         public class Formation
         {
-            public BitmapImage NotSelected { get; set; }
+            public BitmapImage Alpha { get; set; }
             public BitmapImage Selected { get; set; }
         }
-        private SoundPlayer AssaultEndSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeAssaultEnd.wav");
-        enum Enemy
+        public enum Enemy
         {
             Thegn,
             Morpslaga
         }
+
+        private SoundPlayer AssaultEndSF = new SoundPlayer("C:/Users/User/Desktop/Projects/C#/Raiders2/ThemeAssaultEnd.wav");
+        private Random Rand = new Random();
+        private int EnemyFormationNumber;
         private Enemy EnemyType;
 
-        private Formation ShieldWall = new Formation() { NotSelected = new BitmapImage(new Uri("Resources/FormationShieldWall.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationShieldWallSelected.jpg", UriKind.Relative)) };
-        private Formation Wedge = new Formation() { NotSelected = new BitmapImage(new Uri("Resources/FormationWedge.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationWedgeSelected.jpg", UriKind.Relative)) };
-        private Formation Crescent = new Formation() { NotSelected = new BitmapImage(new Uri("Resources/FormationCrescent.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationCrescentSelected.jpg", UriKind.Relative)) };
+        private Formation Wedge = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationWedge.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationWedgeSelected.jpg", UriKind.Relative)) };
+        private Formation ShieldWall = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationShieldWall.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationShieldWallSelected.jpg", UriKind.Relative)) };
+        private Formation Crescent = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationCrescent.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationCrescentSelected.jpg", UriKind.Relative)) };
         
         private double FormationBonus;
         private int EnemyCasualties;
         private int UnitCasualties;
         private int Wounded;
 
-        public void CalculateOutcomeThegn(int SelectedFormation)
+        public void CalculateOutcome(int SelectedFormation, int UnitCasualtiesCalculation, Enemy EnemyType)
         {
-            if (SelectedFormation == 0)
+            if (EnemyFormationNumber == 1)
             {
-                Formation0.Source = Wedge.Selected;
-                Formation1.Source = ShieldWall.NotSelected;
-                Formation2.Source = Crescent.NotSelected;
+                if (SelectedFormation == 1)
+                {
+                    Formation0.Source = Wedge.Selected;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Alpha;
 
-                FormationInfo.Foreground = new SolidColorBrush(Colors.LightGreen);
-                FormationInfo.Content = "Effective Formation!(+%50)";
-                FormationBonus = 0.5;
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.White);
+                    FormationInfo.Content = "Formation has no Effect!(+%0)";
+                    FormationBonus = 0;
+                }
+                else if (SelectedFormation == 2)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Selected;
+                    Formation2.Source = Crescent.Alpha;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.Crimson);
+                    FormationInfo.Content = "Formation not Effective!(-%50)";
+                    FormationBonus = -0.5;
+                }
+                else if (SelectedFormation == 3)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Selected;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.LightGreen);
+                    FormationInfo.Content = "Effective Formation!(+%50)";
+                    FormationBonus = 0.5;
+                }
             }
-            else if (SelectedFormation == 1)
+            else if (EnemyFormationNumber == 2)
             {
-                Formation0.Source = Wedge.NotSelected;
-                Formation1.Source = ShieldWall.Selected;
-                Formation2.Source = Crescent.NotSelected;
+                if (SelectedFormation == 1)
+                {
+                    Formation0.Source = Wedge.Selected;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Alpha;
 
-                FormationInfo.Foreground = new SolidColorBrush(Colors.White);
-                FormationInfo.Content = "Formation has no Effect!(+%0)";
-                FormationBonus = 0;
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.LightGreen);
+                    FormationInfo.Content = "Effective Formation!(+%50)";
+                    FormationBonus = 0.5;
+                }
+                else if (SelectedFormation == 2)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Selected;
+                    Formation2.Source = Crescent.Alpha;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.White);
+                    FormationInfo.Content = "Formation has no Effect!(+%0)";
+                    FormationBonus = 0;
+                }
+                else if (SelectedFormation == 3)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Selected;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.Crimson);
+                    FormationInfo.Content = "Formation not Effective!(-%50)";
+                    FormationBonus = -0.5;
+                }
             }
-            else if (SelectedFormation == 2)
+            else if (EnemyFormationNumber == 3)
             {
-                Formation0.Source = Wedge.NotSelected;
-                Formation1.Source = ShieldWall.NotSelected;
-                Formation2.Source = Crescent.Selected;
+                if (SelectedFormation == 1)
+                {
+                    Formation0.Source = Wedge.Selected;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Alpha;
 
-                FormationInfo.Foreground = new SolidColorBrush(Colors.Crimson);
-                FormationInfo.Content = "Formation not Effective!(-%50)";
-                FormationBonus = -0.5;
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.Crimson);
+                    FormationInfo.Content = "Formation not Effective!(-%50)";
+                    FormationBonus = -0.5;
+                }
+                else if (SelectedFormation == 2)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Selected;
+                    Formation2.Source = Crescent.Alpha;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.LightGreen);
+                    FormationInfo.Content = "Effective Formation!(+%50)";
+                    FormationBonus = 0.5;
+                }
+                else if (SelectedFormation == 3)
+                {
+                    Formation0.Source = Wedge.Alpha;
+                    Formation1.Source = ShieldWall.Alpha;
+                    Formation2.Source = Crescent.Selected;
+
+                    FormationInfo.Foreground = new SolidColorBrush(Colors.White);
+                    FormationInfo.Content = "Formation has no Effect!(+%0)";
+                    FormationBonus = 0;
+                }
             }
 
             EnemyCasualties = MW.Hersir.CalculateEnemyCasualties(FormationBonus);
-            UnitCasualties = MW.Thegn.CalculateUnitCasualties();
-            Wounded = MW.Hersir.CalculateWounded(MW.Thegn.CalculateUnitCasualties());
+            UnitCasualties = UnitCasualtiesCalculation;
+            if (UnitCasualties > MW.Hersir.Number) UnitCasualties = MW.Hersir.Number;
+            Wounded = MW.Hersir.CalculateWounded(UnitCasualties);
 
-            if (EnemyCasualties < MW.Thegn.Number && EnemyCasualties >= 1)
+            if (EnemyType == Enemy.Thegn)
             {
-                KillInfo.Content = MW.Hersir.CalculateEnemyCasualties(FormationBonus) + " Of the Thegn Will Die!";
-            }
-            else if (EnemyCasualties >= MW.Thegn.Number)
-            {
-                KillInfo.Content = "All of the Thegn will Die!";
+                if (EnemyCasualties < MW.Thegn.Number && EnemyCasualties >= 1)
+                {
+                    KillInfo.Content = MW.Hersir.CalculateEnemyCasualties(FormationBonus) + " Of the Thegn Will Die!";
+                }
+                else if (EnemyCasualties >= MW.Thegn.Number)
+                {
+                    KillInfo.Content = "All of the Thegn will Die!";
+                }
+                else
+                {
+                    KillInfo.Content = "None of the Thegn will Die!";
+                }
             }
             else
             {
-                KillInfo.Content = "None of the Thegn will Die!";
+                if (EnemyCasualties < MW.Morpslaga.Number && EnemyCasualties >= 1)
+                {
+                    KillInfo.Content = MW.Hersir.CalculateEnemyCasualties(FormationBonus) + " Of the Morpslaga Will Die!";
+                }
+                else if (EnemyCasualties >= MW.Morpslaga.Number)
+                {
+                    KillInfo.Content = "All of the Morpslaga will Die!";
+                }
+                else
+                {
+                    KillInfo.Content = "None of the Morpslaga will Die!";
+                }
             }
 
-            if (UnitCasualties <= 1)
+            if (UnitCasualties == 1 && MW.Hersir.Rank < 1 && MW.Hersir.Rank < 1)
             {
                 DeathInfo.Content = UnitCasualties + " of the Hersir will be Killed!";
             }
-            else if (UnitCasualties < MW.Hersir.Number)
+            else if (UnitCasualties < MW.Hersir.Number && UnitCasualties > 1 && MW.Hersir.Rank < 1)
             {
                 DeathInfo.Content = UnitCasualties / 2 + " Hersir will be Killed!";
             }
-            else if (UnitCasualties >= MW.Hersir.Number)
+            else if (UnitCasualties >= MW.Hersir.Number && MW.Hersir.Rank < 1)
             {
                 DeathInfo.Content = "All of the Hersir will Die!";
             }
@@ -110,7 +202,7 @@ namespace Raiders_2._1
                 DeathInfo.Content = "No Hersir will be Killed!";
             }
 
-            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0 && UnitCasualties < MW.Hersir.Number)
+            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0)
             {
                 WoundedInfo.Content = Wounded + " Hersir will be Wounded!";
             }
@@ -118,101 +210,31 @@ namespace Raiders_2._1
             {
                 WoundedInfo.Content = "No Hersir will be Wounded!";
             }
-            else if (UnitCasualties >= MW.Hersir.Number)
+            else if (UnitCasualties >= MW.Hersir.Number && MW.Hersir.Rank != 3)
             {
                 WoundedInfo.Content = "";
             }
             else
             {
-                WoundedInfo.Content = "The Wounded Warriors will Perish!";
-                DeathInfo.Content = (MW.Thegn.CalculateUnitCasualties()) + " Hersir will be Killed!";
-            }
+                if (MW.Hersir.Rank != 3)
+                {
+                    WoundedInfo.Content = "The Wounded Warriors will Perish!";
 
-            Assault.IsEnabled = true;
-        }
-        public void CalculateOutcomeMorpslaga(int SelectedFormation)
-        {
-            if (SelectedFormation == 0)
-            {
-                Formation0.Source = Wedge.Selected;
-                Formation1.Source = ShieldWall.NotSelected;
-                Formation2.Source = Crescent.NotSelected;
-
-                FormationInfo.Foreground = new SolidColorBrush(Colors.Crimson);
-                FormationInfo.Content = "Formation not Effective!(-%50)";
-                FormationBonus = -0.5;
-            }
-            else if (SelectedFormation == 1)
-            {
-                Formation0.Source = Wedge.NotSelected;
-                Formation1.Source = ShieldWall.Selected;
-                Formation2.Source = Crescent.NotSelected;
-
-                FormationInfo.Foreground = new SolidColorBrush(Colors.LightGreen);
-                FormationInfo.Content = "Effective Formation!(+%50)";
-                FormationBonus = 0.5;
-            }
-            else if (SelectedFormation == 2)
-            {
-                Formation0.Source = Wedge.NotSelected;
-                Formation1.Source = ShieldWall.NotSelected;
-                Formation2.Source = Crescent.Selected;
-
-                FormationInfo.Foreground = new SolidColorBrush(Colors.White);
-                FormationInfo.Content = "Formation has no Effect!(+%0)";
-                FormationBonus = 0;
-            }
-
-            EnemyCasualties = MW.Hersir.CalculateEnemyCasualties(FormationBonus);
-            UnitCasualties = (MW.Morpslaga.CalculateUnitCasualties());
-            Wounded = MW.Hersir.CalculateWounded(MW.Morpslaga.CalculateUnitCasualties());
-
-            if (EnemyCasualties < MW.Morpslaga.Number && EnemyCasualties >= 1)
-            {
-                KillInfo.Content = MW.Hersir.CalculateEnemyCasualties(FormationBonus) + " Of the Morpslaga Will Die!";
-            }
-            else if (EnemyCasualties >= MW.Morpslaga.Number)
-            {
-                KillInfo.Content = "All of the Morpslaga will Die!";
-            }
-            else
-            {
-                KillInfo.Content = "None of the Morpslaga will Die!";
-            }
-
-            if (UnitCasualties <= 1)
-            {
-                DeathInfo.Content = UnitCasualties  + " of the Hersir will be Killed!";
-            }
-            else if (UnitCasualties < MW.Hersir.Number)
-            {
-                DeathInfo.Content = UnitCasualties / 2 + " Hersir will be Killed!";
-            }
-            else if (UnitCasualties >= MW.Hersir.Number)
-            {
-                DeathInfo.Content = "All of the Hersir will Die!";
-            }
-            else
-            {
-                DeathInfo.Content = "No Hersir will be Killed!";
-            }
-
-            if (UnitCasualties > 1 && MW.Hersir.Wounded == 0 && UnitCasualties < MW.Hersir.Number)
-            {
-                WoundedInfo.Content = Wounded + " Hersir will be Wounded!";
-            }
-            else if (UnitCasualties <= 1 && MW.Hersir.Wounded == 0)
-            {
-                WoundedInfo.Content = "No Hersir will be Wounded!";
-            }
-            else if (UnitCasualties >= MW.Hersir.Number)
-            {
-                WoundedInfo.Content = "";
-            }
-            else
-            {
-                WoundedInfo.Content = "The Wounded Warriors will Perish!";
-                DeathInfo.Content = (MW.Morpslaga.CalculateUnitCasualties()) + " Hersir will be Killed!";
+                    if (EnemyType == Enemy.Thegn)
+                    {
+                        DeathInfo.Content = (MW.Thegn.CalculateUnitCasualties()) + " Hersir will be Killed!";
+                    }
+                    else
+                    {
+                        DeathInfo.Content = (MW.Morpslaga.CalculateUnitCasualties()) + " Hersir will be Killed!";
+                    }
+                }
+                else
+                {
+                    WoundedInfo.Content = "The Wounded Warriors won't fall!";
+                    UnitCasualties = 0;
+                    Wounded = MW.Hersir.Wounded;
+                }
             }
 
             Assault.IsEnabled = true;
@@ -236,16 +258,19 @@ namespace Raiders_2._1
             LabelHersirStrength.Content = "Strength of Warriors:" + MW.Hersir.Strength;
             LabelHersirWounded.Content = "Number of Wounded:" + MW.Hersir.Wounded;
 
+            ImageHersir.Source = MW.Hersir.Overworld.Alpha;
 
-            switch(EnemyType)
+            switch (EnemyType)
             {
                 case Enemy.Morpslaga:
                     LabelEnemyNumber.Content = "Number of Warriors:" + MW.Morpslaga.Number;
                     LabelEnemyStrength.Content = "Strength of Warriors:" + MW.Morpslaga.Strength;
+                    ImageEnemy.Source = MW.Morpslaga.Overworld.Alpha;
                     break;
                 case Enemy.Thegn:
                     LabelEnemyNumber.Content = "Number of Warriors:" + MW.Thegn.Number;
                     LabelEnemyStrength.Content = "Strength of Warriors:" + MW.Thegn.Strength;
+                    ImageEnemy.Source = MW.Thegn.Overworld.Alpha;
                     break;
             }
         }
@@ -258,7 +283,7 @@ namespace Raiders_2._1
             switch (EnemyType)
             {
                 case Enemy.Morpslaga:
-                    MW.Thegn.Number -= EnemyCasualties;
+                    MW.Morpslaga.Number -= EnemyCasualties;
                     break;
                 case Enemy.Thegn:
                     MW.Thegn.Number -= EnemyCasualties;
@@ -271,17 +296,17 @@ namespace Raiders_2._1
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            EnemyFormation.Source = ShieldWall.Selected;
-            
-            switch (EnemyType)
+            EnemyFormationNumber = Rand.Next(1, 4);
+            switch (EnemyFormationNumber)
             {
-                case Enemy.Morpslaga:
-                    EnemyFormation.Source = Crescent.Selected;
-                    ImageEnemy.Source = MW.Morpslaga.Overworld;
+                case 1:
+                    EnemyFormation.Source = Wedge.Selected;
                     break;
-                case Enemy.Thegn:
+                case 2:
                     EnemyFormation.Source = ShieldWall.Selected;
-                    ImageEnemy.Source = MW.Thegn.Overworld;
+                    break;
+                case 3:
+                    EnemyFormation.Source = Crescent.Selected;
                     break;
             }
         }
@@ -295,29 +320,29 @@ namespace Raiders_2._1
                 case Enemy.Morpslaga:
                     if (E == Formation0)
                     {
-                        CalculateOutcomeMorpslaga(0);
+                        CalculateOutcome(1, MW.Morpslaga.CalculateUnitCasualties(), EnemyType);
                     }
                     else if (E == Formation1)
                     {
-                        CalculateOutcomeMorpslaga(1);
+                        CalculateOutcome(2, MW.Morpslaga.CalculateUnitCasualties(), EnemyType);
                     }
                     else
                     {
-                        CalculateOutcomeMorpslaga(2);
+                        CalculateOutcome(3, MW.Morpslaga.CalculateUnitCasualties(), EnemyType);
                     }
                     break;
                 case Enemy.Thegn:
                     if (E == Formation0)
                     {
-                        CalculateOutcomeThegn(0);
+                        CalculateOutcome(1, MW.Thegn.CalculateUnitCasualties(), EnemyType);
                     }
                     else if (E == Formation1)
                     {
-                        CalculateOutcomeThegn(1);
+                        CalculateOutcome(2, MW.Thegn.CalculateUnitCasualties(), EnemyType);
                     }
                     else
                     {
-                        CalculateOutcomeThegn(2);
+                        CalculateOutcome(3, MW.Thegn.CalculateUnitCasualties(), EnemyType);
                     }
                     break;
             }
