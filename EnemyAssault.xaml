@@ -27,20 +27,20 @@
         <Label x:Name="LabelHersirNumber" Content="Number of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" FontSize="21" Foreground="LightSeaGreen" FontFamily="Norse"/>
         <Label x:Name="LabelHersirStrength" Content="Strength of Warriors:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontSize="21" Foreground="Red" FontFamily="Norse"/>
         <Label x:Name="LabelHersirWounded" Content="Number of Wounded:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" FontSize="21" Foreground="Yellow" FontFamily="Norse"/>
-        <Button x:Name="Assault" Content="Launch Assault!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Click="Assault_Click" Width="136" Height="58" Margin="64.6,78,53,78.4" IsEnabled="False" FontFamily="Norse" FontSize="17"/>
-        <Button x:Name="Cancel" Content="Cancel Assault!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Margin="64.6,0,53,16.4" Width="136" Height="30" IsCancel="True" FontFamily="Norse" FontSize="17"/>
+        <Button x:Name="ButtonAssault" Content="Launch Assault!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Click="Assault_Click" Width="136" Height="58" Margin="64.6,78,53,78.4" IsEnabled="False" FontFamily="Norse" FontSize="17"/>
+        <Button x:Name="ButtonCancel" Content="Cancel Assault!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Margin="64.6,0,53,16.4" Width="136" Height="30" IsCancel="True" FontFamily="Norse" FontSize="17"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image x:Name="Formation0" Source="Resources/FormationWedge.jpg" Margin="0,0,0,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
-            <Image x:Name="Formation1" Source="Resources/FormationShieldWall.jpg" Margin="0,0,0,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp" />
-            <Image x:Name="Formation2" Source="Resources/FormationCrescent.jpg" Margin="0,0,0,0.2" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
+            <Image x:Name="Formation0" Source="Resources/FormationWedge.png" Margin="0,0,10,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
+            <Image x:Name="Formation1" Source="Resources/FormationShieldWall.png" Margin="0,0,0,0.4" Width="88" MouseLeftButtonUp="Formation_MouseUp" />
+            <Image x:Name="Formation2" Source="Resources/FormationCrescent.png" Margin="10,0,0,0.2" Width="88" MouseLeftButtonUp="Formation_MouseUp"/>
         </StackPanel>
         <Image x:Name="ImageEnemy" Source="Resources/ThegnOverworld.png" Grid.Column="2"/>
         <Label x:Name="LabelEnemyNumber" Content="Number of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2"  FontSize="21" Foreground="LightSeaGreen" FontFamily="Norse"/>
         <Label x:Name="LabelEnemyStrength" Content="Strength of Warriors" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="3"  FontSize="21" Foreground="Red" FontFamily="Norse"/>
-        <Image x:Name="EnemyFormation" Source="Resources/FormationShieldWallSelected.jpg" Grid.Column="2" Grid.Row="1" FlowDirection="RightToLeft"/>
-        <Label x:Name="FormationInfo"  Content="Choose a Formation!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="21" Foreground="White" FontFamily="Norse"/>
+        <Image x:Name="ImageEnemyFormation" Source="Resources/FormationShieldWallSelected.png" Grid.Column="2" Grid.Row="1" FlowDirection="RightToLeft"/>
         <Label x:Name="DeathInfo" Content="? Hersir will be Killed!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" FontSize="21" Foreground="DarkSeaGreen" FontFamily="Norse"/>
         <Label x:Name="KillInfo"  Content="? of Thegn will Die!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" FontSize="21" Foreground="Crimson" FontFamily="Norse"/>
         <Label x:Name="WoundedInfo" Content="? Hersir will be Wounded!" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" FontSize="21" Foreground="Gold" FontFamily="Norse"/>
+        <MediaElement x:Name="VideoAssault" Grid.Row="1" Grid.Column="1" LoadedBehavior="Manual"/>
     </Grid>
 </Window>

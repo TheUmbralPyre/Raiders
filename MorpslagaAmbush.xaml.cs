@@ -75,7 +75,7 @@ namespace Raiders_2._1
             }
             else
             {
-                FormationBonus = -0.50;
+                FormationBonus = -0.25;
             }
 
             int EnemyCasualties = MW.Hersir.CalculateEnemyCasualties(FormationBonus);

@@ -430,6 +430,16 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MapChurch {
+            get {
+                object obj = ResourceManager.GetObject("MapChurch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MapCrossroads {
             get {
                 object obj = ResourceManager.GetObject("MapCrossroads", resourceCulture);
@@ -440,9 +450,29 @@ namespace Raiders_2._1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MapCrossroadsNight {
+            get {
+                object obj = ResourceManager.GetObject("MapCrossroadsNight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MapLindisfarne {
             get {
                 object obj = ResourceManager.GetObject("MapLindisfarne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MapLindisfarneNight {
+            get {
+                object obj = ResourceManager.GetObject("MapLindisfarneNight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -550,7 +580,7 @@ namespace Raiders_2._1.Properties {
         ///oversee the training of a band of criminals who are
         ///trying to regain their lost honor. 
         ///
-        ///♦SLO♦
+        ///♦SLO(W)♦
         ///Every second turn-this unit reinforces itself.
         ///
         ///•Outta my Mind•
@@ -608,6 +638,62 @@ namespace Raiders_2._1.Properties {
         internal static System.Drawing.Bitmap ThegnPicture {
             get {
                 object obj = ResourceManager.GetObject("ThegnPicture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;&apos;\&apos;/asd\&apos;/asd/as&apos;d
+        ///asdsad
+        ///sdawrfegrewgwegr
+        ///
+        ///♦Requiem♦
+        ///asdyubOJHFB H
+        ///ASDASOUDYAGSDOUYB 
+        ///SDFSDF.
+        /// </summary>
+        internal static string UnknownDescription {
+            get {
+                return ResourceManager.GetString("UnknownDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnknownOverworld {
+            get {
+                object obj = ResourceManager.GetObject("UnknownOverworld", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnknownOverworldAssault {
+            get {
+                object obj = ResourceManager.GetObject("UnknownOverworldAssault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnknownOverworldSelected {
+            get {
+                object obj = ResourceManager.GetObject("UnknownOverworldSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnknownPicture {
+            get {
+                object obj = ResourceManager.GetObject("UnknownPicture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

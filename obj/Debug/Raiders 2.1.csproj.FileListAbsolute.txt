@@ -29,12 +29,10 @@ C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.app
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.exe
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\bin\Debug\Raiders 2.1.pdb
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.csprojAssemblyReference.cache
-C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneInfo1.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneLevel.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\App.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1_MarkupCompile.cache
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1_MarkupCompile.lref
-C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneInfo1.baml
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\LindisfarneLevel.baml
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders 2.1.g.resources
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\Raiders_2._1.Properties.Resources.resources
@@ -56,3 +54,7 @@ C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MorpslagaAmbush
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MorpslagaAmbush.baml
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\ThegnSally.g.cs
 C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\ThegnSally.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MissionAdvance.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\MissionAdvance.baml
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\UnknownSally.g.cs
+C:\Users\User\Desktop\Projects\C#\Raiders2\Raiders 2.0\obj\Debug\UnknownSally.baml

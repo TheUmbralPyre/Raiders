@@ -19,25 +19,13 @@ namespace Raiders_2._1
     /// </summary>
     public partial class MainMenu : Window
     {
-        private MediaPlayer MainMenuMusic = new MediaPlayer();
-        private void MusicLoop(object sender, EventArgs e)
-        {
-            MainMenuMusic.Position = TimeSpan.Zero;
-            MainMenuMusic.Play();
-        }
-
         public MainMenu()
         {
             InitializeComponent();
-
-            MainMenuMusic.MediaEnded += new EventHandler(MusicLoop);
-            MainMenuMusic.Open(new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/ThemeMainMenu.wav"));
-            MainMenuMusic.Play();
         }
 
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
-            MainMenuMusic.Stop();
             MainWindow Lindisfarne = new MainWindow();
             this.Close();
             Lindisfarne.Show();

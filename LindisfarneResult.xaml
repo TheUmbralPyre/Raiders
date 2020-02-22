@@ -15,7 +15,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label x:Name="LabelResult" Content="VICTORY!" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gold" FontFamily="Norse Bold" FontSize="100" Margin="259,85,254.6,85" Width="280"/>
-        <Button x:Name="ButtonRestartMission" Content="Restart Mission" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Click="ButtonRestartMission_Click" FontFamily="Norse" FontSize="30"/>
+        <StackPanel Grid.Row="1">
+            <Button x:Name="ButtonRestartMission" Margin="0 10" Content="Restart Mission" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonRestartMission_Click" FontFamily="Norse" FontSize="30"/>
+            <Button x:Name="ButtonExitGame"  Margin="0 10"  Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonExitGame_Click"  FontFamily="Norse" FontSize="30"/>
+        </StackPanel>
         <Image x:Name="Image1" Source="Resources/MorpslagaOverworldDefeated.png" VerticalAlignment="Center" HorizontalAlignment="Left" Width="254" Stretch="Fill"/>
         <Image x:Name="Image2" Source="Resources/ThegnOverworldDefeated.png" VerticalAlignment="Center" HorizontalAlignment="Right" Width="250" Stretch="Fill" Margin="0,0,-0.4,0"/>
     </Grid>

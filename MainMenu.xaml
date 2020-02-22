@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Raiders_2._1"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="600" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.ico">
+        Title="Main Menu" Height="450" Width="600" WindowStartupLocation="CenterScreen" Icon="Resources/Icon.ico">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Background3.jpg"/>
     </Window.Background>

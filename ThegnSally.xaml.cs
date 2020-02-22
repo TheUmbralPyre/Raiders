@@ -28,11 +28,13 @@ namespace Raiders_2._1
         Random Rand = new Random();
 
         MainWindow MW = new MainWindow();
-        private Formation ShieldWall = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationShieldWall.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationShieldWallSelected.jpg", UriKind.Relative)) };
-        private Formation Wedge = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationWedge.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationWedgeSelected.jpg", UriKind.Relative)) };
-        private Formation Crescent = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationCrescent.jpg", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationCrescentSelected.jpg", UriKind.Relative)) };
-        private SoundPlayer AssaultEndSF = new SoundPlayer(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/ThemeAssaultEnd.wav");
+        private Formation ShieldWall = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationShieldWall.png", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationShieldWallSelected.png", UriKind.Relative)) };
+        private Formation Wedge = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationWedge.png", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationWedgeSelected.png", UriKind.Relative)) };
+        private Formation Crescent = new Formation() { Alpha = new BitmapImage(new Uri("Resources/FormationCrescent.png", UriKind.Relative)), Selected = new BitmapImage(new Uri("Resources/FormationCrescentSelected.png", UriKind.Relative)) };
         private double FormationBonus;
+
+        private string HersirFormation;
+        private string EnemyFormation;
 
         public ThegnSally(MainWindow mainWindow)
         {
@@ -45,18 +47,23 @@ namespace Raiders_2._1
             {
                 case 1:
                     ImageThegnFormation.Source = Wedge.Selected;
+                    EnemyFormation = "Wedge";
                     break;
                 case 2:
                     ImageThegnFormation.Source = ShieldWall.Selected;
+                    EnemyFormation = "ShieldWall";
                     break;
                 case 3:
                     ImageThegnFormation.Source = Crescent.Selected;
+                    EnemyFormation = "Crescent";
                     break;
             }
 
             ImageHersirFormation1.Source = Wedge.Alpha;
-            ImageHersirFormation2.Source = ShieldWall.Alpha;
+            ImageHersirFormation2.Source = ShieldWall.Selected;
             ImageHersirFormation3.Source = Crescent.Alpha;
+
+            HersirFormation = "ShieldWall";
         }
 
         private void ImageHersirFormation_MouseDown(object sender, MouseButtonEventArgs e)
@@ -67,18 +74,23 @@ namespace Raiders_2._1
                 ImageHersirFormation2.Source = ShieldWall.Alpha;
                 ImageHersirFormation3.Source = Crescent.Alpha;
 
+                HersirFormation = "Wedge";
             }
             else if ((sender as Image).Source == ShieldWall.Alpha)
             {
                 ImageHersirFormation1.Source = Wedge.Alpha;
                 ImageHersirFormation2.Source = ShieldWall.Selected;
                 ImageHersirFormation3.Source = Crescent.Alpha;
+
+                HersirFormation = "ShieldWall";
             }
             else if ((sender as Image).Source == Crescent.Alpha)
             {
                 ImageHersirFormation1.Source = Wedge.Alpha;
                 ImageHersirFormation2.Source = ShieldWall.Alpha;
                 ImageHersirFormation3.Source = Crescent.Selected;
+
+                HersirFormation = "Crescent";
             }
         }
 
@@ -86,15 +98,15 @@ namespace Raiders_2._1
         {
             if (ImageThegnFormation.Source == Wedge.Selected && ImageHersirFormation3.Source == Crescent.Selected)
             {
-                FormationBonus = 0.25;
+                FormationBonus = 0.50;
             }
             else if (ImageThegnFormation.Source == ShieldWall.Selected && ImageHersirFormation1.Source == Wedge.Selected)
             {
-                FormationBonus = 0.25;
+                FormationBonus = 0.50;
             }
             else if (ImageThegnFormation.Source == Crescent.Selected && ImageHersirFormation2.Source == ShieldWall.Selected)
             {
-                FormationBonus = 0.25;
+                FormationBonus = 0.50;
             }
             else
             {
@@ -120,11 +132,16 @@ namespace Raiders_2._1
                 Wounded = MW.Hersir.Wounded;
             }
 
-            AssaultEndSF.PlaySync();
             MW.Hersir.Number -= UnitCasualties;
             MW.Thegn.Number -= EnemyCasualties;
             MW.Hersir.Wounded = Wounded;
-            DialogResult = true;
+
+            VideoSally.Source = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/" + HersirFormation + "Vs" + EnemyFormation + ".mp4", UriKind.Relative);
+            VideoSally.Play();
+
+            Confirm.Content = "Close Window";
+            Confirm.Click -= Confirm_Click;
+            Confirm.Click += Close_Click;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -133,6 +150,11 @@ namespace Raiders_2._1
             {
                 e.Cancel = true;
             }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

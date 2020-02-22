@@ -17,7 +17,7 @@
             <ColumnDefinition Width="186.4"/>
 
         </Grid.ColumnDefinitions>
-        <Image Source="Resources/MapLindisfarne.jpg" Stretch="Fill" Grid.Column="1" Margin="0,0,2.2,0"/>
+        <Image x:Name="ImageMap" Source="Resources/MapLindisfarne.jpg" Stretch="Fill" Grid.Column="1" Margin="0,0,2.2,0"/>
         <UniformGrid x:Name="BorderGrid" Columns="8" Rows="6" Grid.Column="1" Margin="0,126,2.2,140">
             <Image Margin="0,10,0.2,-13.6" Source="Resources/BorderField.png" Stretch="Fill" RenderTransformOrigin="0.976,0.514"/>
             <Image Margin="0,10,0,-13.2" Source="Resources/BorderField.png" Stretch="Fill"/>
@@ -69,54 +69,54 @@
             <Image Margin="0,10,0,-8.4" Source="Resources/BorderField.png" Stretch="Fill"/>
         </UniformGrid>
         <UniformGrid x:Name="FieldGrid" Grid.Column="1" Margin="10,142,179.6,127" Rows="6" Columns="8" Grid.ColumnSpan="2">
-            <Image x:Name="FieldBox40" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox41" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox42" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox43" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox44" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox45" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox46" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox47" Margin="0,0,14.8,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox32" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox33" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox34" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox35" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox36" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox37" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox38" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox39" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox24" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox25" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox26" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox27" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox28" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox29" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox30" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox31" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox16" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox17" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox18" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox19" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox20" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox21" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox22" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox23" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox8" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox9" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox10" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox11" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox12" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox13" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox14" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox15" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox0" Margin="0,0,17.2,8" Stretch="Fill" MouseDown="Field_MouseDown"/>
-            <Image x:Name="FieldBox1" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox2" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox3" Margin="0,0,16.8,7.6" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox4" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox5" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox6" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
-            <Image x:Name="FieldBox7" Margin="0,0,17.2,8" MouseDown="Field_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox40" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox41" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox42" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox43" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox44" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox45" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox46" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox47" Margin="0,0,14.8,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox32" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox33" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox34" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox35" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox36" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox37" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox38" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox39" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox24" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox25" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox26" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox27" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox28" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox29" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox30" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox31" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox16" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox17" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox18" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox19" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox20" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox21" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox22" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox23" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox8" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox9" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox10" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox11" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox12" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox13" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox14" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox15" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox0" Margin="0,0,17.2,8" Stretch="Fill" MouseDown="FieldBox_MouseDown"/>
+            <Image x:Name="FieldBox1" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox2" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox3" Margin="0,0,16.8,7.6" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox4" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox5" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox6" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
+            <Image x:Name="FieldBox7" Margin="0,0,17.2,8" MouseDown="FieldBox_MouseDown" Stretch="Fill"/>
         </UniformGrid>
         <Border x:Name="UI1" Margin="10" BorderBrush="DarkGray" BorderThickness="1" CornerRadius="5">
             <Border.Background>
@@ -125,21 +125,20 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2.5*"/>
                     <RowDefinition Height="4*"/>
                 </Grid.RowDefinitions>
                 <Image x:Name="SelectedPicture" HorizontalAlignment="Left" Height="174" VerticalAlignment="Top" Width="158" Margin="10,9,0,0" Stretch="Fill" OpacityMask="Black" Grid.Row="0" Grid.RowSpan="1"/>
-                <Label x:Name="SelectedName" FontSize="35" FontFamily="Norse Bold" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" >
-                    <TextBlock x:Name="SelectedNameText" TextWrapping="WrapWithOverflow">
-                    </TextBlock>
-                </Label>
-                <Label x:Name="SelectedNumber" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000" Grid.Row="2"/>
-                <Label x:Name="SelectedStrength" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" Grid.Row="3"/>
-                <Label x:Name="SelectedSpecial" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4"/>
-                <RichTextBox x:Name="SelectedText" Margin="10,0,10.4,10.4" Foreground="White" IsReadOnlyCaretVisible="True" Focusable="False" AllowDrop="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="13" HorizontalScrollBarVisibility="Auto" IsEnabled="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Height="236" VerticalAlignment="Bottom" Block.LineHeight="6" Grid.Row="5">
+                <StackPanel Grid.Row="1">
+                    <Label x:Name="SelectedName" FontSize="35" FontFamily="Norse Bold" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock x:Name="SelectedNameText" TextWrapping="WrapWithOverflow">
+                        </TextBlock>
+                    </Label>
+                    <Label x:Name="SelectedNumber" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,10.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF408209" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#00000000"/>
+                    <Label x:Name="SelectedStrength" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB62828" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                    <Label x:Name="SelectedSpecial" FontSize="25" FontFamily="Norse" FontWeight="Bold" Margin="3,0,3.4,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFD7C133" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <RichTextBox x:Name="SelectedText" Margin="10,0,10.4,10.4" Foreground="White" IsReadOnlyCaretVisible="True" Focusable="False" AllowDrop="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="13" HorizontalScrollBarVisibility="Auto" IsEnabled="False" ScrollViewer.CanContentScroll="True" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Height="255" VerticalAlignment="Bottom" Block.LineHeight="6" Grid.Row="2">
                     <RichTextBox.BorderBrush>
                         <ImageBrush/>
                     </RichTextBox.BorderBrush>
@@ -167,7 +166,7 @@
                     <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="ButtonEndTurn" Margin="10,15.6,9.8,0.2" Background="#FFF9F7EB" Content="End Turn" FontSize="28" Grid.Row="8" Click="ButtonEndTurn_Click" FontFamily="Norse"/>
-                <Label x:Name="LabelActions" Content="Actions Left:" Margin="10,2,9.8,10.8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="LightGreen" FontSize="25" Grid.Row="7" FontFamily="Norse"/>
+                <Label x:Name="LabelActions" Content="Actions Left : 2" Margin="10,2,9.8,10.8" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="LightGreen" FontSize="25" Grid.Row="7" FontFamily="Norse"/>
                 <Label x:Name="LabelRightClick" Margin="10,0.2,11.8,80.4" FontSize="19" Foreground="White" Grid.Row="6" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="139" Height="61" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" FontFamily="Norse">
                     <TextBlock x:Name="TextRightClick" TextWrapping="WrapWithOverflow">
                     </TextBlock>
@@ -180,7 +179,7 @@
                 <Image x:Name="ImageLeftClick" Source="Resources/ClickNeutral.png" Grid.Row ="3"/>
                 <TextBlock x:Name="TextBlockMissionObjective2" Grid.Row="2" Text="Objective2" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
                 <TextBlock x:Name="TextBlockMissionObjective1" Grid.Row="1" Text="Objective1" Foreground="White" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="20" TextWrapping="WrapWithOverflow" FontFamily="Norse"/>
-                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFF7B63E" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
+                <TextBlock x:Name="TextBlockMissionTitle" Grid.Row="0" Foreground="#FFFF1C1C" HorizontalAlignment ="Center" VerticalAlignment="Center" FontSize="25" TextWrapping="WrapWithOverflow" Text="MissionTitle" FontFamily="Norse"/>
             </Grid>
         </Border>
     </Grid>
