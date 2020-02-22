@@ -1,9 +1,9 @@
 # Raiders
-A game I made with WPF for an olympiad.
+A game made with WPF.
 
-The Gane is loosely based on the Raid of Lindisfarne.
-You play as a group of Viking warriors, who are searching for their purpose.
+It is loosely based on the Raid of  Lindisfarne.
+You play as a group of Viking warriors, who are searching for a purpose.
 
-You can find the setup [here](https://www.mediafire.com/file/vcndxwvmoa8ag0e/RaidersSetup.msi/file).
+You can find the setup [here](https://www.mediafire.com/file/fvq74s1kegolihr/RaidersSetup.msi/file).
 
 
