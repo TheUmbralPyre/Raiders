@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Image x:Name="ImageRank" Source="Resources/HersirOverworldSelected1.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label x:Name="LabelRankMessage1" Grid.Row="1" FontFamily="Norse" FontSize="40" Content="New Augmentation Received: Out of Hell" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="10,11.2,9.6,55.2" Width="774" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="LabelRankMessage1" Grid.Row="1" FontFamily="Norse" FontSize="40" Content="New Modification Received: Out of Hell" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="10,11.2,9.6,55.2" Width="774" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label x:Name="LabelRankMessage2" Grid.Row="1" FontFamily="Norse Bold" FontSize="35" Content="Got nothing left to lose, all hope is gone!" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="10,59.2,9.6,7.2" Width="774" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="ButtonRank" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="I understand" FontFamily="Norse Bold" FontSize="40" Click="ButtonRank_Click"/>
     </Grid>

@@ -26,12 +26,12 @@ namespace Raiders_2._1
             switch (Rank)
             {
                 case 2:
-                    LabelRankMessage1.Content = "New Augmentation Received: Undefeated";
+                    LabelRankMessage1.Content = "New Modification Received: Undefeated";
                     LabelRankMessage2.Content = "All the strength that I have, all the life that's left in me!";
                     ImageRank.Source = new BitmapImage(new Uri("Resources/HersirOverworldSelected2.png",UriKind.Relative));
                     break;
                 case 3:
-                    LabelRankMessage1.Content = "New Augmentation Received: Back From The Dead";
+                    LabelRankMessage1.Content = "New Modification Received: Back From The Dead";
                     LabelRankMessage2.Content = "Full of love, full of light, full of fight!";
                     ImageRank.Source = new BitmapImage(new Uri("Resources/HersirOverworldSelected3.png", UriKind.Relative));
                     break;

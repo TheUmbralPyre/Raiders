@@ -139,7 +139,7 @@ namespace Raiders_2._1
             VideoSally.Source = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "GameResources/" + HersirFormation + "Vs" + EnemyFormation + ".mp4", UriKind.Relative);
             VideoSally.Play();
 
-            Confirm.Content = "Close Window";
+            Confirm.Content = "Close";
             Confirm.Click -= Confirm_Click;
             Confirm.Click += Close_Click;
         }
